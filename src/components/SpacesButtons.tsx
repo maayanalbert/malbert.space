@@ -8,7 +8,7 @@ import {
 export default function SpacesButtons() {
   return (
     <div className="absolute w-full flex justify-center items-center h-[20%] bottom-0">
-      <div className="flex flex-row items-center justify-between gap-[12px]">
+      <div className="flex flex-row items-center justify-between sm:gap-[12px] gap-[6px]">
         <SpaceSelectable space="WORK" />
         <SpaceSelectable space="CONTACT" />
         <SpaceSelectable space="LOCATION" />
@@ -36,8 +36,8 @@ function SpaceSelectable({ space }: SpaceSelectableProps) {
   return (
     <div className="hover:scale-105 transition ease-in-out">
       <div
-        className={`rounded text-base text-center border px-[20px] py-[5px] cursor-pointer 
-      transition ease-in-out w-[110px] duration-500`}
+        className={`rounded text-center border py-[5px] cursor-pointer 
+      transition ease-in-out sm:w-[110px] w-[80px] duration-500 text-sm sm:text-base`}
         style={{
           color: curSpace === space ? "white" : accentColor,
           borderColor: accentColor,

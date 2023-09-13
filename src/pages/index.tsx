@@ -1,6 +1,5 @@
 import MainPage from "@/components/MainPage"
-import { use, useEffect, useState } from "react"
-import { useRouter } from "next/router"
+import { useEffect } from "react"
 import { useIsMobile, useLowColor, useMidColor } from "@/GlobalsContext"
 
 /**

@@ -14,7 +14,7 @@ export default function Section({ items }: Props) {
   return (
     <div
       className={`absolute w-full flex justify-center items-center h-[90%] 
-      top-0 text-xl p-24 text-center flex-col gap-4`}
+      top-0 sm:text-xl text-normal p-24 text-center flex-col gap-4 `}
     >
       {items.map((item) => (
         <Item item={item} />
@@ -48,7 +48,7 @@ function Item({ item }: ItemProps) {
       <a
         href={link}
         target="_blank"
-        className="hover:font-medium absolute transition-all ease-in-out font-light"
+        className="hover:font-medium absolute transition-all ease-in-out font-light select-none"
         style={{
           left: `calc(50% - 10px)`,
           color: curSpace && getSpaceColor(curSpace),
