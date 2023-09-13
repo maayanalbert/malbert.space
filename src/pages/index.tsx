@@ -13,7 +13,7 @@ export default function Home() {
   const lowColor = useLowColor()
 
   useEffect(() => {
-    document.title = "Eve"
+    document.title = "Maayan"
   }, [])
 
   // don't draw anything until we have a tile size

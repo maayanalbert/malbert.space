@@ -1,10 +1,9 @@
 import Title from "@/components/Title"
-import InfoCard from "@/components/InfoCard"
-import AlphaCard from "@/components/AlphaCard"
-import { CARD_HEIGHT } from "@/constants"
 import { createGlobalStyle } from "styled-components"
-import { getSpaceColor, useSpacesContext } from "@/SpaceContext"
+import { Space, getSpaceColor, useSpacesContext } from "@/SpaceContext"
 import SpacesButtons from "./SpacesButtons"
+import Section from "./Section"
+import { ReactNode } from "react"
 
 /**
  * The main page where all of the content is
@@ -20,13 +19,78 @@ export default function MainPage() {
 }
 `
 
+  const workItems = [
+    { first: "Founder", second: "Eve", link: "" },
+    { first: "Founding Engineer", second: "Avenue", link: "" },
+    { first: "Co-writer", second: "Stamper", link: "" },
+    { first: "Design & CS", second: "Carnegie Mellon", link: "" },
+  ]
+
+  const contactItems = [
+    { first: "Twitter", second: "_maayanster", link: "" },
+    { first: "Github", second: "maayanalbert", link: "" },
+    { first: "Email", second: "maayan.albert@gmail.com", link: "" },
+    { first: "Linkedin", second: "maayan-albert", link: "" },
+  ]
+
+  const locationItems = [
+    { first: "Live", second: "New York", link: "" },
+    { first: "Often in", second: "San Francisco", link: "" },
+    { first: "From", second: "Maryland", link: "" },
+  ]
+
   return (
     <>
       <GlobalStyles />
-      {/* <div className="flex flex-col justify-center items-center h-full w-full">
+      <OpacityWrapper visible={!curSpace}>
         <Title />
-      </div> */}
+      </OpacityWrapper>
+      <OpacityWrapper visible={curSpace === "WORK"}>
+        <Section items={workItems} />
+      </OpacityWrapper>
+      <OpacityWrapper visible={curSpace === "CONTACT"}>
+        <Section items={contactItems} />
+      </OpacityWrapper>
+      <OpacityWrapper visible={curSpace === "LOCATION"}>
+        <Section items={locationItems} />
+      </OpacityWrapper>
       <SpacesButtons />
     </>
+  )
+}
+
+interface OpacityWrapperProps {
+  children: ReactNode
+  visible: boolean
+}
+
+function OpacityWrapper({ children, visible }: OpacityWrapperProps) {
+  return (
+    <div
+      style={{
+        opacity: visible ? 1 : 0,
+        transition: `opacity 0.2s ease-in-out ${visible ? 0.1 : 0}s`,
+      }}
+    >
+      {children}
+    </div>
+  )
+}
+
+interface OpacityWrapperProps {
+  children: ReactNode
+  space: Space
+}
+
+function SectionWrapper({ children, space }: OpacityWrapperProps) {
+  const {}
+  return (
+    <div
+      style={{
+        margin: 50,
+      }}
+    >
+      {children}
+    </div>
   )
 }

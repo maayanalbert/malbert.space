@@ -1,5 +1,5 @@
 import {
-  SpaceType,
+  Space,
   getSpaceColor,
   getSpaceName,
   useSpacesContext,
@@ -9,16 +9,16 @@ export default function SpacesButtons() {
   return (
     <div className="absolute w-full flex justify-center items-center h-[20%] bottom-0">
       <div className="flex flex-row items-center justify-between gap-[12px]">
-        <SpaceSelectable space="PLACES" />
         <SpaceSelectable space="WORK" />
-        <SpaceSelectable space="HOBBIES" />
+        <SpaceSelectable space="CONTACT" />
+        <SpaceSelectable space="LOCATION" />
       </div>
     </div>
   )
 }
 
 interface SpaceSelectableProps {
-  space: SpaceType
+  space: Space
 }
 
 function SpaceSelectable({ space }: SpaceSelectableProps) {
@@ -37,13 +37,12 @@ function SpaceSelectable({ space }: SpaceSelectableProps) {
     <div className="hover:scale-105 transition ease-in-out">
       <div
         className={`rounded text-base text-center border px-[20px] py-[5px] cursor-pointer 
-      transition ease-in-out w-[110px] duration-300`}
+      transition ease-in-out w-[110px] duration-500`}
         style={{
-          color: accentColor,
+          color: curSpace === space ? "white" : accentColor,
           borderColor: accentColor,
           borderRadius: 7,
-          backgroundColor:
-            curSpace === space ? getSpaceColor(space, 0.2) : "white",
+          backgroundColor: curSpace === space ? accentColor : "white",
         }}
         onClick={onPress}
       >
