@@ -45,15 +45,12 @@ export default function MainPage() {
       <OpacityWrapper visible={!curSpace}>
         <Title />
       </OpacityWrapper>
-      <OpacityWrapper visible={curSpace === "WORK"}>
-        <Section items={workItems} />
+      <OpacityWrapper visible={!!curSpace}>
+        {curSpace === "WORK" && <Section items={workItems} />}
+        {curSpace === "CONTACT" && <Section items={contactItems} />}
+        {curSpace === "LOCATION" && <Section items={locationItems} />}
       </OpacityWrapper>
-      <OpacityWrapper visible={curSpace === "CONTACT"}>
-        <Section items={contactItems} />
-      </OpacityWrapper>
-      <OpacityWrapper visible={curSpace === "LOCATION"}>
-        <Section items={locationItems} />
-      </OpacityWrapper>
+
       <SpacesButtons />
     </>
   )
@@ -69,7 +66,7 @@ function OpacityWrapper({ children, visible }: OpacityWrapperProps) {
     <div
       style={{
         opacity: visible ? 1 : 0,
-        transition: `opacity 0.2s ease-in-out ${visible ? 0.1 : 0}s`,
+        transition: `opacity 1s ease-in-out ${visible ? 1 : 0}s`,
       }}
     >
       {children}
@@ -77,17 +74,18 @@ function OpacityWrapper({ children, visible }: OpacityWrapperProps) {
   )
 }
 
-interface OpacityWrapperProps {
+interface SectionWrapperProps {
   children: ReactNode
   space: Space
 }
 
-function SectionWrapper({ children, space }: OpacityWrapperProps) {
-  const {}
+function SectionWrapper({ children, space }: SectionWrapperProps) {
+  const { curSpace } = useSpacesContext()
   return (
     <div
       style={{
-        margin: 50,
+        margin: curSpace === space ? 0 : space === "CONTACT" ? "10px" : "-10px",
+        transition: `all 0.5s cubic-bezier(0, 0.55, 0.45, 1) 0s`,
       }}
     >
       {children}
