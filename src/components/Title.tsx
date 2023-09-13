@@ -87,7 +87,7 @@ export default function Title() {
         <input
           className={`${
             isMobile ? "font-normal" : "font-light"
-          } w-full h-full absolute top-0 bg-transparent text-white`}
+          } w-full h-full absolute top-0 bg-transparent text-black`}
           value={text}
           onChange={(event) => setText(event.target.value)}
           style={{
@@ -107,7 +107,7 @@ export default function Title() {
             lg:h-[80px] lg:w-[4px] lg:top-[-20px] lg:left-[0px]
             h-[45px] w-[3px] top-[-7px] left-[0px]`}
               style={{
-                backgroundColor: curSpace ? getSpaceColor(curSpace) : "white",
+                backgroundColor: curSpace ? getSpaceColor(curSpace) : "black",
               }}
             />
           </div>
@@ -115,10 +115,10 @@ export default function Title() {
       </div>
 
       <div className="absolute w-full flex justify-center items-center h-[20%] bottom-0">
-        <div className="flex flex-row items-center justify-between gap-[10px]">
-          <SpaceSelectable space="IDEAS" setTitle={setPrompt} />
-          <SpaceSelectable space="FEELINGS" setTitle={setPrompt} />
-          <SpaceSelectable space="NOTES" setTitle={setPrompt} />
+        <div className="flex flex-row items-center justify-between gap-[12px]">
+          <SpaceSelectable space="PLACES" setTitle={setPrompt} />
+          <SpaceSelectable space="WORK" setTitle={setPrompt} />
+          <SpaceSelectable space="HOBBIES" setTitle={setPrompt} />
         </div>
       </div>
     </div>
@@ -133,8 +133,7 @@ interface SpaceSelectableProps {
 function SpaceSelectable({ space, setTitle }: SpaceSelectableProps) {
   const { curSpace, setCurSpace } = useSpacesContext()
 
-  const accentColor =
-    !curSpace || curSpace === space ? getSpaceColor(space) : "gray"
+  const accentColor = getSpaceColor(space)
 
   const onPress = () => {
     if (curSpace === space) {
@@ -146,17 +145,21 @@ function SpaceSelectable({ space, setTitle }: SpaceSelectableProps) {
     }
   }
   return (
-    <div
-      className={`rounded text-base border px-[20px] py-[5px] cursor-pointer 
-      hover:scale-105 transition-transform ease-in-out`}
-      style={{
-        color: accentColor,
-        borderColor: accentColor,
-        borderRadius: 7,
-      }}
-      onClick={onPress}
-    >
-      {getSpaceName(space)}
+    <div className="hover:scale-105 transition ease-in-out">
+      <div
+        className={`rounded text-base text-center border px-[20px] py-[5px] cursor-pointer 
+      transition ease-in-out w-[110px] duration-300`}
+        style={{
+          color: accentColor,
+          borderColor: accentColor,
+          borderRadius: 7,
+          backgroundColor:
+            curSpace === space ? getSpaceColor(space, 0.2) : "white",
+        }}
+        onClick={onPress}
+      >
+        {getSpaceName(space)}
+      </div>
     </div>
   )
 }

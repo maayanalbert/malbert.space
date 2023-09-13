@@ -41,16 +41,18 @@ export function useSpacesContext(): SpaceContextType {
   return context
 }
 
-export type SpaceType = "IDEAS" | "FEELINGS" | "NOTES"
+export type SpaceType = "WORK" | "PLACES" | "HOBBIES"
 
 export function getSpaceColor(type: SpaceType, opacity?: number) {
   switch (type) {
-    case "IDEAS":
+    case "WORK":
+      return opacity ? `rgba(252,50,88, ${opacity})` : "rgb(252,50,88)"
+    case "PLACES":
       return opacity ? `rgba(0,151,254, ${opacity})` : "rgb(0,151,254)"
-    case "FEELINGS":
-      return opacity ? `rgba(125,91,235, ${opacity})` : "rgb(125,91,235)"
-    case "NOTES":
+    case "HOBBIES":
       return opacity ? `rgba(232, 186,42, ${opacity})` : "rgb(232, 186,42)"
+
+    // `rgba(252,50,88, ${opacity})` : "rgb(252,50,88)"
     default:
       return "gray"
   }
@@ -58,12 +60,12 @@ export function getSpaceColor(type: SpaceType, opacity?: number) {
 
 export function getSpaceName(type: SpaceType) {
   switch (type) {
-    case "IDEAS":
-      return "Ideas"
-    case "FEELINGS":
-      return "Feelings"
-    case "NOTES":
-      return "Notes"
+    case "WORK":
+      return "Work"
+    case "PLACES":
+      return "Places"
+    case "HOBBIES":
+      return "Hobbies"
     default:
       return ""
   }
@@ -71,11 +73,11 @@ export function getSpaceName(type: SpaceType) {
 
 export function getSpacePrompt(type?: SpaceType) {
   switch (type) {
-    case "IDEAS":
+    case "WORK":
       return "Thoughts?"
-    case "FEELINGS":
+    case "PLACES":
       return "How are you doing?"
-    case "NOTES":
+    case "HOBBIES":
       return "What's new?"
     default:
       return "What's on your mind?"

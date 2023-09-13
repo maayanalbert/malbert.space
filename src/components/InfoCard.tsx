@@ -12,7 +12,6 @@ import { useRef } from "react"
 export default function InfoCard() {
   const isMobile = useIsMobile()
   const cardRef = useRef<HTMLDivElement>(null)
-  const { curSpace } = useSpacesContext()
 
   // create an event listener for scrolling animation
   useEventListener(
@@ -38,28 +37,12 @@ export default function InfoCard() {
       const cardDistFromCenter = cardCenter - screenCenter
       const scrollDurationBase = (window.innerHeight * 4.25) / 5
 
-      // the title
-      setCardScrollClass(
-        cardDistFromCenter,
-        scrollDurationBase * 0.285,
-        scrollDurationBase * 0.3,
-        `--scroll-card-0-title`
-      )
-
       // the subtitle
       setCardScrollClass(
         cardDistFromCenter,
         scrollDurationBase * 0.3,
-        scrollDurationBase * 0.285,
+        scrollDurationBase * 0.3,
         `--scroll-card-0-body`
-      )
-
-      // the buttons, not using for now
-      setCardScrollClass(
-        cardDistFromCenter,
-        scrollDurationBase * 0.15,
-        20000000,
-        `--scroll-buttons`
       )
     },
     [cardRef]
@@ -67,43 +50,23 @@ export default function InfoCard() {
 
   return (
     <div
-      className="flex flex-col justify-center items-center sm:w-[420px] w-[300px]"
+      className="flex flex-col justify-center items-start w-[300px]"
       style={{
         height: CARD_HEIGHT,
+        fontSize: 36,
       }}
       ref={cardRef}
     >
-      <div className="flex flex-col gap-2">
-        <div className={"scroll-card-0-title"}>
-          <p
-            className={`text-white text-2xl font-bold ${
-              isMobile ? "font-bold" : "font-semibold"
-            }`}
-          >
-            Notes that talk back
-          </p>
-        </div>
-        <div
-          className={`scroll-card-0-body ${
-            isMobile ? "font-normal" : "font-light"
-          }`}
-        >
-          <p style={{ color: "gray" }}>
-            Eve lets you create thought partners for different facets of your
-            life.
-          </p>
-          <div
-            className={`w-full flex flex-col`}
-            style={{
-              borderRadius: 10,
-              // padding: 24,
-              marginTop: 24,
-              gap: 16,
-            }}
-          >
-            <ExampleContent />
-          </div>
-        </div>
+      <div
+        className={`flex flex-col gap-2 scroll-card-0-body text-xl ${
+          isMobile ? "font-normal" : "font-light"
+        }`}
+        style={{ color: "gray" }}
+      >
+        <p>Founder @ Eve</p>
+        <p>Founding Engineer @ Avenue</p>
+        <p>Co-writer @ Stamper</p>
+        <p>Design & CS @ Carnegie</p>
       </div>
     </div>
   )
@@ -112,12 +75,12 @@ export default function InfoCard() {
 function ExampleContent() {
   const isMobile = useIsMobile()
   const { curSpace } = useSpacesContext()
-  if (curSpace === "IDEAS" || !curSpace) {
+  if (curSpace === "WORK" || !curSpace) {
     return (
       <>
         <div
           className={isMobile ? "font-bold" : "font-semibold"}
-          style={{ color: "white" }}
+          style={{ color: "black" }}
         >
           <p>{`"Need to end presentation on a high note"`}</p>
         </div>
@@ -129,18 +92,18 @@ function ExampleContent() {
               height: 24,
               width: 2,
               top: -2,
-              backgroundColor: curSpace ? getSpaceColor(curSpace) : "white",
+              backgroundColor: curSpace ? getSpaceColor(curSpace) : "black",
             }}
           />
         </div>
       </>
     )
-  } else if (curSpace === "FEELINGS") {
+  } else if (curSpace === "PLACES") {
     return (
       <>
         <div
           className={isMobile ? "font-bold" : "font-semibold"}
-          style={{ color: "white" }}
+          style={{ color: "black" }}
         >
           <p>{`"I'm overwhelmed, I want to run"`}</p>
         </div>
@@ -152,18 +115,18 @@ function ExampleContent() {
               height: 24,
               width: 2,
               top: -2,
-              backgroundColor: curSpace ? getSpaceColor(curSpace) : "white",
+              backgroundColor: curSpace ? getSpaceColor(curSpace) : "black",
             }}
           />
         </div>
       </>
     )
-  } else if (curSpace === "NOTES") {
+  } else if (curSpace === "HOBBIES") {
     return (
       <>
         <div
           className={isMobile ? "font-bold" : "font-semibold"}
-          style={{ color: "white" }}
+          style={{ color: "black" }}
         >
           <p>{`"Groceries: eggs, boodles, broccoli"`}</p>
         </div>
