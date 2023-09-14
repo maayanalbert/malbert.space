@@ -37,7 +37,7 @@ function Item({ item, space }: ItemProps) {
     <div>
       <p
         className="absolute font-extralight"
-        style={{ right: `calc(50% + 18px)` }}
+        style={{ right: `calc(50% + 10px)` }}
       >
         {first}
       </p>
@@ -51,13 +51,14 @@ function Item({ item, space }: ItemProps) {
       <a
         href={link}
         target="_blank"
-        className="hover:font-medium absolute transition-all ease-in-out font-light select-none"
+        className="hover:underline absolute transition-all ease-in-out font-light select-none"
         style={{
-          left: `calc(50% - 10px)`,
+          left: `calc(50% + 10px)`,
           color: getSpaceColor(space),
+          textDecorationThickness: 1.5,
         }}
       >
-        {`@ ${second}`}
+        {`${second}`}
       </a>
     </div>
   )

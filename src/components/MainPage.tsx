@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components"
 import { Space, getSpaceColor, useSpacesContext } from "@/SpaceContext"
 import SpacesButtons from "./SpacesButtons"
 import Section from "./Section"
-import { ReactNode } from "react"
+import { ReactNode, useEffect, useState } from "react"
 
 /**
  * The main page where all of the content is
@@ -37,25 +37,25 @@ export default function MainPage() {
       link: "https://twitter.com/_maayanster",
     },
     {
-      first: "Github",
-      second: "maayanalbert",
-      link: "https://github.com/maayanalbert",
-    },
-    {
       first: "Email",
       second: "maayan.albert",
       link: "mailto:maayan.albert@gmail.com",
     },
     {
-      first: "Linkedin",
-      second: "maayan-albert",
-      link: "https://www.linkedin.com/in/maayan-albert/",
+      first: "Github",
+      second: "maayanalbert",
+      link: "https://github.com/maayanalbert",
     },
+    // {
+    //   first: "Linkedin",
+    //   second: "maayan-albert",
+    //   link: "https://www.linkedin.com/in/maayan-albert/",
+    // },
   ]
 
   const locationItems = [
     {
-      first: "Live",
+      first: "Live in",
       second: "New York",
       link: "https://www.google.com/maps/place/Manhattan,+New+York,+NY/@40.7591622,-74.0516318,12z/data=!3m1!4b1!4m6!3m5!1s0x89c2588f046ee661:0xa0b3281fcecc08c!8m2!3d40.7830603!4d-73.9712488!16zL20vMGNjNTY?entry=ttu",
     },
@@ -102,7 +102,7 @@ function OpacityWrapper({ children, visible }: OpacityWrapperProps) {
     <div
       style={{
         opacity: visible ? 1 : 0,
-        transition: `opacity 1s ease-in-out ${visible ? 1 : 0}s`,
+        transition: `opacity 0.2s ease-in-out ${visible ? 0.2 : 0}s`,
       }}
     >
       {children}
@@ -119,15 +119,28 @@ function SectionOpacityWrapper({
   visible,
   children,
 }: SectionOpacityWrapperProps) {
+  const { curSpace } = useSpacesContext()
+  const [renderSection, setRenderSection] = useState(visible)
+
+  useEffect(() => {
+    if (!visible && !curSpace) {
+      setTimeout(() => {
+        setRenderSection(false)
+      }, 200)
+    } else {
+      setRenderSection(visible)
+    }
+  }, [visible])
+
   return (
     <div
       style={{
         opacity: visible ? 1 : 0,
         // delay the opacity changing to it can fade in the parent wrapper
-        transition: !visible ? `opacity 0s ease-in-out 1s` : "",
+        transition: !visible && !curSpace ? `opacity 0s ease-in-out 0.2s` : "",
       }}
     >
-      {children}
+      {renderSection && children}
     </div>
   )
 }
