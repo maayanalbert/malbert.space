@@ -12,7 +12,12 @@ interface Props {
 }
 
 export default function Section({ items, space }: Props) {
-  const margin = space === "CONTACT" ? "ml-[-20px]" : "ml-0"
+  const margin =
+    space === "CONTACT"
+      ? "ml-[-32px]"
+      : space === "LOCATION"
+      ? "ml-[-25px]"
+      : "ml-0"
   return (
     <div
       className={`absolute w-full flex justify-center items-center h-[90%] 
