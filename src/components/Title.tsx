@@ -4,7 +4,7 @@ export default function Title() {
       <p className="font-semibold" style={{ marginRight: 8 }}>
         Hi, I'm Maayan.
       </p>
-      <p className="font-light"> I like building tools for everyone.</p>
+      <p className="font-light"> I whittle tools out of computers.</p>
     </div>
   )
 }
