@@ -1,6 +1,5 @@
 import MainPage from "@/components/MainPage"
-import { use, useEffect, useState } from "react"
-import { useRouter } from "next/router"
+import { useEffect } from "react"
 import { useIsMobile, useLowColor, useMidColor } from "@/GlobalsContext"
 
 /**
@@ -13,7 +12,7 @@ export default function Home() {
   const lowColor = useLowColor()
 
   useEffect(() => {
-    document.title = "Eve"
+    document.title = "Maayan"
   }, [])
 
   // don't draw anything until we have a tile size

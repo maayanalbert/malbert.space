@@ -2,8 +2,8 @@ import exp from "constants"
 import { createContext, ReactNode, useContext, useState } from "react"
 
 interface SpaceContextType {
-  curSpace?: SpaceType
-  setCurSpace: (space?: SpaceType) => void
+  curSpace?: Space
+  setCurSpace: (space?: Space) => void
 }
 
 /**
@@ -22,7 +22,7 @@ interface Props {
  * Create the provider that everything that uses the context should be wrapped in
  */
 export function SpaceContextProvider({ children }: Props) {
-  const [curSpace, setCurSpace] = useState<SpaceType | undefined>()
+  const [curSpace, setCurSpace] = useState<Space | undefined>()
 
   return (
     <SpaceContext.Provider
@@ -41,43 +41,30 @@ export function useSpacesContext(): SpaceContextType {
   return context
 }
 
-export type SpaceType = "IDEAS" | "FEELINGS" | "NOTES"
+export type Space = "WORK" | "LOCATION" | "CONTACT"
 
-export function getSpaceColor(type: SpaceType, opacity?: number) {
+export function getSpaceColor(type: Space, opacity?: number) {
   switch (type) {
-    case "IDEAS":
-      return opacity ? `rgba(0,151,254, ${opacity})` : "rgb(0,151,254)"
-    case "FEELINGS":
-      return opacity ? `rgba(125,91,235, ${opacity})` : "rgb(125,91,235)"
-    case "NOTES":
+    case "WORK":
+      return opacity ? `rgba(252,50,88, ${opacity})` : "rgb(252,50,88)"
+    case "LOCATION":
       return opacity ? `rgba(232, 186,42, ${opacity})` : "rgb(232, 186,42)"
+    case "CONTACT":
+      return opacity ? `rgba(0,151,254, ${opacity})` : "rgb(0,151,254)"
     default:
       return "gray"
   }
 }
 
-export function getSpaceName(type: SpaceType) {
+export function getSpaceName(type: Space) {
   switch (type) {
-    case "IDEAS":
-      return "Ideas"
-    case "FEELINGS":
-      return "Feelings"
-    case "NOTES":
-      return "Notes"
+    case "WORK":
+      return "Work"
+    case "LOCATION":
+      return "Location"
+    case "CONTACT":
+      return "Contact"
     default:
       return ""
-  }
-}
-
-export function getSpacePrompt(type?: SpaceType) {
-  switch (type) {
-    case "IDEAS":
-      return "Thoughts?"
-    case "FEELINGS":
-      return "How are you doing?"
-    case "NOTES":
-      return "What's new?"
-    default:
-      return "What's on your mind?"
   }
 }
