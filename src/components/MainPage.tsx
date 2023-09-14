@@ -19,7 +19,7 @@ export default function MainPage() {
       link: "https://avenue.app/",
     },
     {
-      first: "Co-writer",
+      first: "Co-author",
       second: "Stamper",
       link: "https://paper.dropbox.com/doc/Stamper-An-Artboard-Oriented-Programming-Environment-QXtfMXshBFBNCu6iCtx2J",
     },
