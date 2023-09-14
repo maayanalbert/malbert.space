@@ -1,4 +1,4 @@
-import { getSpaceColor, useSpacesContext } from "@/SpaceContext"
+import { Space, getSpaceColor, useSpacesContext } from "@/SpaceContext"
 
 export interface Item {
   first: string
@@ -8,16 +8,17 @@ export interface Item {
 
 interface Props {
   items: Item[]
+  space: Space
 }
 
-export default function Section({ items }: Props) {
+export default function Section({ items, space }: Props) {
   return (
     <div
       className={`absolute w-full flex justify-center items-center h-[90%] 
       top-0 sm:text-xl text-normal p-24 text-center flex-col gap-4 `}
     >
       {items.map((item) => (
-        <Item item={item} />
+        <Item item={item} space={space} />
       ))}
     </div>
   )
@@ -25,10 +26,11 @@ export default function Section({ items }: Props) {
 
 interface ItemProps {
   item: Item
+  space: Space
 }
 
-function Item({ item }: ItemProps) {
-  const { curSpace } = useSpacesContext()
+// can't use curSpace because of animation related delays
+function Item({ item, space }: ItemProps) {
   const { first, second, link } = item
   return (
     <div>
@@ -51,7 +53,7 @@ function Item({ item }: ItemProps) {
         className="hover:font-medium absolute transition-all ease-in-out font-light select-none"
         style={{
           left: `calc(50% - 10px)`,
-          color: curSpace && getSpaceColor(curSpace),
+          color: getSpaceColor(space),
         }}
       >
         {`@ ${second}`}

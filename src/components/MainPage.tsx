@@ -77,12 +77,16 @@ export default function MainPage() {
         <Title />
       </OpacityWrapper>
       <OpacityWrapper visible={!!curSpace}>
-        {/* figure out how to anticipate unmout so we can have them transiton out too */}
-        {curSpace === "WORK" && <Section items={workItems} />}
-        {curSpace === "CONTACT" && <Section items={contactItems} />}
-        {curSpace === "LOCATION" && <Section items={locationItems} />}
+        <SectionOpacityWrapper visible={curSpace === "WORK"}>
+          <Section items={workItems} space={"WORK"} />
+        </SectionOpacityWrapper>
+        <SectionOpacityWrapper visible={curSpace === "CONTACT"}>
+          <Section items={contactItems} space={"CONTACT"} />
+        </SectionOpacityWrapper>
+        <SectionOpacityWrapper visible={curSpace === "LOCATION"}>
+          <Section items={locationItems} space={"LOCATION"} />
+        </SectionOpacityWrapper>
       </OpacityWrapper>
-
       <SpacesButtons />
     </>
   )
@@ -98,7 +102,29 @@ function OpacityWrapper({ children, visible }: OpacityWrapperProps) {
     <div
       style={{
         opacity: visible ? 1 : 0,
-        transition: `opacity 0.2s ease-in-out ${visible ? 0.2 : 0}s`,
+        transition: `opacity 1s ease-in-out ${visible ? 1 : 0}s`,
+      }}
+    >
+      {children}
+    </div>
+  )
+}
+
+interface SectionOpacityWrapperProps {
+  children: ReactNode
+  visible: boolean
+}
+
+function SectionOpacityWrapper({
+  visible,
+  children,
+}: SectionOpacityWrapperProps) {
+  return (
+    <div
+      style={{
+        opacity: visible ? 1 : 0,
+        // delay the opacity changing to it can fade in the parent wrapper
+        transition: !visible ? `opacity 0s ease-in-out 1s` : "",
       }}
     >
       {children}
