@@ -21,7 +21,7 @@ export default function Section({ items, space }: Props) {
   return (
     <div
       className={`absolute w-full flex justify-center items-center h-[90%] 
-      top-0 sm:text-xl text-normal p-24 text-center flex-col gap-4 ${margin}`}
+      top-0 sm:text-3xl text-normal p-24 text-center flex-col gap-8 ${margin}`}
     >
       {items.map((item) => (
         <Item item={item} space={space} />
@@ -40,10 +40,7 @@ function Item({ item, space }: ItemProps) {
   const { first, second, link } = item
   return (
     <div>
-      <p
-        className="absolute font-extralight"
-        style={{ right: `calc(50% + 10px)` }}
-      >
+      <p className="absolute font-light" style={{ right: `calc(50% + 10px)` }}>
         {first}
       </p>
       <a
@@ -56,7 +53,7 @@ function Item({ item, space }: ItemProps) {
       <a
         href={link}
         target="_blank"
-        className="hover:underline absolute transition-all ease-in-out font-light select-none"
+        className="hover:underline absolute transition-all ease-in-out select-none font-semibold"
         style={{
           left: `calc(50% + 10px)`,
           color: getSpaceColor(space),

@@ -1,10 +1,13 @@
 export default function Title() {
   return (
-    <div className="absolute w-full flex justify-center items-center h-[90%] top-0 sm:text-3xl text-xl p-24 text-center sm:flex-row flex-col">
-      <p className="font-semibold" style={{ marginRight: 8 }}>
-        Hi, I'm Maayan.
-      </p>
-      <p className="font-light"> I'm a digital toolmaker.</p>
+    <div
+      className="absolute w-full text-center flex justify-center items-center h-[90%] top-0 p-16 flex-col"
+      style={{ fontFamily: "Helvetica Neue" }}
+    >
+      <p className="font-semibold sm:text-9xl text-3xl">Hi, I'm Maayan.</p>
+      {/* <p className="font-semibold text-xl" style={{ marginRight: 100 }}>
+        I love computers. I love people. I love doing well by both.
+      </p> */}
     </div>
   )
 }
