@@ -1,6 +1,11 @@
 import Title from "@/components/Title"
 import { createGlobalStyle } from "styled-components"
-import { Space, getSpaceColor, useSpacesContext } from "@/SpaceContext"
+import {
+  Space,
+  getSpaceColor,
+  getSpaceName,
+  useSpacesContext,
+} from "@/SpaceContext"
 import SpacesButtons from "./SpacesButtons"
 import Section from "./Section"
 import { ReactNode, useEffect, useState } from "react"
@@ -46,11 +51,6 @@ export default function MainPage() {
       second: "maayanalbert",
       link: "https://github.com/maayanalbert",
     },
-    // {
-    //   first: "Linkedin",
-    //   second: "maayan-albert",
-    //   link: "https://www.linkedin.com/in/maayan-albert/",
-    // },
   ]
 
   const locationItems = [
@@ -72,7 +72,10 @@ export default function MainPage() {
   ]
 
   return (
-    <>
+    <div
+      className="h-full w-full"
+      style={{ backgroundColor: getSpaceColor(curSpace ?? "WORK") }}
+    >
       <OpacityWrapper visible={!curSpace}>
         <Title />
       </OpacityWrapper>
@@ -88,7 +91,7 @@ export default function MainPage() {
         </SectionOpacityWrapper>
       </OpacityWrapper>
       <SpacesButtons />
-    </>
+    </div>
   )
 }
 

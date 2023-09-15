@@ -7,7 +7,7 @@ import {
 
 export default function SpacesButtons() {
   return (
-    <div className="absolute w-full flex justify-center items-center h-[20%] bottom-0">
+    <div className="absolute w-full flex justify-start items-start h-[20%] bottom-0 p-16">
       <div className="flex flex-row items-center justify-between sm:gap-[12px] gap-[6px]">
         <SpaceSelectable space="WORK" />
         <SpaceSelectable space="CONTACT" />
