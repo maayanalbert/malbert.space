@@ -1,7 +1,7 @@
 export default function Title() {
   return (
     <div
-      className="absolute w-full text-center flex justify-center items-center h-[90%] top-0 p-16 flex-col"
+      className="absolute flex-col h-full w-full sm:p-16 p-8 flex items-start justify-center"
       style={{ fontFamily: "Helvetica Neue" }}
     >
       <p className="font-semibold sm:text-9xl text-3xl">Hi, I'm Maayan.</p>

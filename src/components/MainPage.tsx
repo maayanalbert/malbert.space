@@ -2,7 +2,7 @@ import Title from "@/components/Title"
 import { createGlobalStyle } from "styled-components"
 import { Space, getSpaceColor, useSpacesContext } from "@/SpaceContext"
 import SpacesButtons from "./SpacesButtons"
-import Section from "./Section"
+import Section, { Item, Row } from "./Section"
 import { ReactNode, useEffect, useState } from "react"
 
 /**
@@ -11,23 +11,31 @@ import { ReactNode, useEffect, useState } from "react"
 export default function MainPage() {
   const curSpace = useSpacesContext().curSpace
 
-  const workItems = [
-    { first: "Founder", second: "Eve", link: "https://www.eve.space/" },
-    {
-      first: "Founding Engineer",
-      second: "Avenue",
-      link: "https://avenue.app/",
-    },
-    {
-      first: "Co-author",
-      second: "Stamper",
-      link: "https://paper.dropbox.com/doc/Stamper-An-Artboard-Oriented-Programming-Environment-QXtfMXshBFBNCu6iCtx2J",
-    },
-    {
-      first: "Design & CS",
-      second: "Carnegie Mellon",
-      link: "https://www.cmu.edu/",
-    },
+  const workContent: Row[] = [
+    [
+      {
+        first: "I studied Design & CS at",
+        second: "Carnegie Mellon",
+        link: "https://www.design.cmu.edu/user/967",
+      },
+      {
+        first: "where I wrote my thesis on",
+        second: "Authoring Environments",
+        link: "https://paper.dropbox.com/doc/Stamper-An-Artboard-Oriented-Programming-Environment-QXtfMXshBFBNCu6iCtx2J",
+      },
+    ],
+    [
+      {
+        first: "I scaled Avenue Ops as their",
+        second: "Founding Engineer",
+        link: "https://avenue.so/blog/avenue-launches-signal-views",
+      },
+      {
+        first: "and am now making us all more mature with",
+        second: "Eve",
+        link: "https://www.eve.space/",
+      },
+    ],
   ]
 
   const contactItems = [
@@ -72,23 +80,23 @@ export default function MainPage() {
   ]
 
   return (
-    <>
+    <div>
       <OpacityWrapper visible={!curSpace}>
         <Title />
       </OpacityWrapper>
       <OpacityWrapper visible={!!curSpace}>
         <SectionOpacityWrapper visible={curSpace === "WORK"}>
-          <Section items={workItems} space={"WORK"} />
+          <Section rows={workContent} space={"WORK"} />
         </SectionOpacityWrapper>
-        <SectionOpacityWrapper visible={curSpace === "CONTACT"}>
+        {/* <SectionOpacityWrapper visible={curSpace === "CONTACT"}>
           <Section items={contactItems} space={"CONTACT"} />
         </SectionOpacityWrapper>
         <SectionOpacityWrapper visible={curSpace === "LOCATION"}>
           <Section items={locationItems} space={"LOCATION"} />
-        </SectionOpacityWrapper>
+        </SectionOpacityWrapper> */}
       </OpacityWrapper>
       <SpacesButtons />
-    </>
+    </div>
   )
 }
 

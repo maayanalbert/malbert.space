@@ -1,31 +1,33 @@
 import { Space, getSpaceColor, useSpacesContext } from "@/SpaceContext"
 
-export interface Item {
+export type Row = Item[]
+
+export type Item = {
   first: string
   second: string
   link: string
 }
 
 interface Props {
-  items: Item[]
+  rows: Row[]
   space: Space
 }
 
-export default function Section({ items, space }: Props) {
-  const margin =
-    space === "CONTACT"
-      ? "ml-[-32px]"
-      : space === "LOCATION"
-      ? "ml-[-25px]"
-      : "ml-0"
+export default function Section({ rows, space }: Props) {
   return (
     <div
-      className={`absolute w-full flex justify-center items-center h-[90%] 
-      top-0 sm:text-3xl text-normal p-24 text-center flex-col gap-8 ${margin}`}
+      className={`absolute top-0 flex-col h-full w-full sm:p-16 p-8 flex items-start justify-center 
+      h-[90%] sm:text-2xl text-normal text-center flex-col `}
     >
-      {items.map((item) => (
-        <Item item={item} space={space} />
-      ))}
+      <div className="flex flex-col sm:gap-4 gap-4 items-start">
+        {rows.map((row, index) => (
+          <div className="flex sm:flex-row flex-col gap-2">
+            {row.map((item, index) => (
+              <Item key={index} item={item} space={space} />
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
@@ -39,28 +41,15 @@ interface ItemProps {
 function Item({ item, space }: ItemProps) {
   const { first, second, link } = item
   return (
-    <div>
-      <p className="absolute font-light" style={{ right: `calc(50% + 10px)` }}>
-        {first}
-      </p>
-      <a
-        style={{
-          color: "transparent",
-        }}
-      >
-        @
-      </a>
+    <div className="flex sm:flex-row flex-col sm:gap-2 text-start">
+      <p>{first}</p>
       <a
         href={link}
         target="_blank"
-        className="hover:underline absolute transition-all ease-in-out select-none font-semibold"
-        style={{
-          left: `calc(50% + 10px)`,
-          color: getSpaceColor(space),
-          textDecorationThickness: 1.5,
-        }}
+        className="hover:underline font-bold"
+        style={{ color: getSpaceColor(space) }}
       >
-        {`${second}`}
+        {second}
       </a>
     </div>
   )

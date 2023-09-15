@@ -7,7 +7,7 @@ import {
 
 export default function SpacesButtons() {
   return (
-    <div className="absolute w-full flex justify-center items-center h-[20%] bottom-0">
+    <div className="absolute w-full flex justify-start items-start sm:p-16 p-8 h-[20%] bottom-0">
       <div className="flex flex-row items-center justify-between sm:gap-[12px] gap-[6px]">
         <SpaceSelectable space="WORK" />
         <SpaceSelectable space="CONTACT" />
@@ -24,8 +24,6 @@ interface SpaceSelectableProps {
 function SpaceSelectable({ space }: SpaceSelectableProps) {
   const { curSpace, setCurSpace } = useSpacesContext()
 
-  const accentColor = getSpaceColor(space)
-
   const onPress = () => {
     if (curSpace === space) {
       setCurSpace()
@@ -34,20 +32,24 @@ function SpaceSelectable({ space }: SpaceSelectableProps) {
     }
   }
   return (
-    <div className="hover:scale-105 transition ease-in-out">
-      <div
-        className={`rounded text-center border py-[5px] cursor-pointer 
-      transition ease-in-out sm:w-[110px] w-[80px] duration-500 text-sm sm:text-base`}
-        style={{
-          color: curSpace === space ? "white" : accentColor,
-          borderColor: accentColor,
-          borderRadius: 7,
-          backgroundColor: curSpace === space ? accentColor : "white",
-        }}
-        onClick={onPress}
+    <div
+      className={`text-center py-[5px] cursor-pointer relative 
+      sm:w-[110px] w-[80px] text-sm sm:text-base group`}
+      onClick={onPress}
+    >
+      <p
+        className={`top-0 absolute h-full ${
+          space === curSpace ? "w-0" : "w-full"
+        }
+           transition-all ease-out group-hover:w-0`}
+        style={{ backgroundColor: getSpaceColor(space) }}
+      />
+      <p // TODO: find out why this shows up as below the background color when it's not absolute
+        className="top-0 h-full transition-all ease-in-out w-full"
+        style={{ color: "black" }}
       >
         {getSpaceName(space)}
-      </div>
+      </p>
     </div>
   )
 }
