@@ -17,7 +17,7 @@ export default function Section({ rows, space }: Props) {
   return (
     <div
       className={`absolute top-0 flex-col h-full w-full sm:p-32 p-8 flex items-start justify-center 
-      h-[90%] sm:text-3xl text-normal text-center flex-col `}
+      h-[90%] sm:text-3xl text-lg text-center flex-col `}
     >
       <div className="flex flex-col sm:gap-16 gap-4 items-start">
         {rows.map((row, index) => (

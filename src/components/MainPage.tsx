@@ -31,7 +31,7 @@ export default function MainPage() {
         link: "https://avenue.so/blog/avenue-launches-signal-views",
       },
       {
-        first: "and am now making us all more mature with",
+        first: "and am now raising our EQ with",
         second: "Eve",
         link: "https://www.eve.space/",
       },

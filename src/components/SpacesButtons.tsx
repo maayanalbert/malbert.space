@@ -1,3 +1,4 @@
+import { useIsMobile } from "@/GlobalsContext"
 import {
   Space,
   getSpaceColor,
@@ -8,14 +9,19 @@ import { ArrowLeftIcon, XMarkIcon } from "@heroicons/react/24/solid"
 
 export default function SpacesButtons() {
   const { curSpace } = useSpacesContext()
+  const isMobile = useIsMobile()
 
   return (
     <div className="absolute w-full flex justify-start items-start sm:p-28 sm:pb-32 p-8 h-[20%] bottom-0">
-      <div className="flex flex-row items-center justify-between sm:gap-[12px] gap-[6px] relative">
+      <div className="flex flex-row items-center justify-between sm:gap-3 gap-3 relative">
         {curSpace && (
           <div
             className="absolute right-full"
-            style={{ right: "calc(100% + 6px)" }}
+            style={{
+              right: isMobile ? undefined : "calc(100% + .75rem)",
+              left: isMobile ? "0" : undefined,
+              top: isMobile ? "calc(100% + .75rem)" : undefined,
+            }}
           >
             <BackSelectable />
           </div>
@@ -37,8 +43,8 @@ function BackSelectable() {
 
   return (
     <div
-      className={`flex justify-start items-start py-[5px] cursor-pointer relative 
-      sm:w-10 w-8 text-sm sm:text-base group`}
+      className={`flex justify-start items-start sm:py-1.5 py-1 cursor-pointer relative 
+      sm:w-10 w-10 text-sm sm:text-base group`}
       onClick={onPress}
     >
       <p
@@ -61,16 +67,12 @@ function SpaceSelectable({ space }: SpaceSelectableProps) {
   const { curSpace, setCurSpace } = useSpacesContext()
 
   const onPress = () => {
-    if (curSpace === space) {
-      setCurSpace()
-    } else {
-      setCurSpace(space)
-    }
+    setCurSpace(space)
   }
   return (
     <div
-      className={`text-center py-[5px] cursor-pointer relative 
-      sm:w-32 w-24 text-sm sm:text-base group`}
+      className={`text-center py-1.5 cursor-pointer relative 
+      sm:w-28 w-20 :text-base group`}
       onClick={onPress}
     >
       <p
