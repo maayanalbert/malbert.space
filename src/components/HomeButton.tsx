@@ -1,5 +1,5 @@
 import { routerPathToSpace } from "@/spacesHelpers"
-import { ArrowLeftIcon } from "@heroicons/react/24/solid"
+import { HomeIcon } from "@heroicons/react/24/outline"
 import { useRouter } from "next/router"
 
 export function HomeButton() {
@@ -14,10 +14,10 @@ export function HomeButton() {
   if (!curSpace) return null
 
   return (
-    <div className="absolute top-0 sm:p-28 sm:pt-24 p-8">
+    <div className="absolute top-0 right-0 sm:p-28 sm:pt-24 p-8">
       <div
         className={`flex justify-start items-start sm:py-1.5 py-1 cursor-pointer relative 
-      sm:w-9 w-9 text-sm sm:text-base group`}
+      sm:w-9 w-8 text-sm sm:text-base group`}
         onClick={onPress}
       >
         <p
@@ -26,7 +26,7 @@ export function HomeButton() {
           style={{ backgroundColor: "black" }}
         />
         <div className="flex h-full w-full justify-center items-center">
-          <ArrowLeftIcon className="h-6 w-6" />
+          <HomeIcon className="h-6 w-6" />
         </div>
       </div>
     </div>

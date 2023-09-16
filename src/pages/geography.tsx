@@ -29,5 +29,5 @@ export default function About() {
     ],
   ]
 
-  return <Section rows={content} space={"ABOUT"} />
+  return <Section rows={content} space={"GEOGRAPHY"} />
 }

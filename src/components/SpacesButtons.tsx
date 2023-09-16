@@ -13,7 +13,7 @@ export default function SpacesButtons() {
       <div className="flex flex-row items-center justify-between gap-3 relative sm:w-fit w-full">
         <SpaceSelectable space="ABOUT" />
         <SpaceSelectable space="CONTACT" />
-        <SpaceSelectable space="LOCATION" />
+        <SpaceSelectable space="GEOGRAPHY" />
       </div>
     </div>
   )
