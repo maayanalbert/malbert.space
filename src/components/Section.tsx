@@ -21,7 +21,7 @@ export default function Section({ rows, space }: Props) {
     >
       <div className="flex flex-col sm:gap-16 gap-12 items-start">
         {rows.map((row, index) => (
-          <div className="flex flex-col sm:gap-4 gap-1">
+          <div className="flex flex-col sm:gap-4 gap-1" key={index}>
             {row.map((item, index) => (
               <Item key={index} item={item} space={space} />
             ))}
