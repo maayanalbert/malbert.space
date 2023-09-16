@@ -38,45 +38,36 @@ export default function MainPage() {
     ],
   ]
 
-  const contactItems = [
-    {
-      first: "Twitter",
-      second: "_maayanster",
-      link: "https://twitter.com/_maayanster",
-    },
-    {
-      first: "Email",
-      second: "maayan.albert",
-      link: "mailto:maayan.albert@gmail.com",
-    },
-    {
-      first: "Github",
-      second: "maayanalbert",
-      link: "https://github.com/maayanalbert",
-    },
-    // {
-    //   first: "Linkedin",
-    //   second: "maayan-albert",
-    //   link: "https://www.linkedin.com/in/maayan-albert/",
-    // },
+  const contactContent = [
+    [
+      {
+        first: "Always reachable at",
+        second: "maayan.albert@gmail.com",
+        link: "mailto:maayan.albert@gmail.com",
+      },
+    ],
   ]
 
-  const locationItems = [
-    {
-      first: "Live in",
-      second: "New York",
-      link: "https://www.google.com/maps/place/Manhattan,+New+York,+NY/@40.7591622,-74.0516318,12z/data=!3m1!4b1!4m6!3m5!1s0x89c2588f046ee661:0xa0b3281fcecc08c!8m2!3d40.7830603!4d-73.9712488!16zL20vMGNjNTY?entry=ttu",
-    },
-    {
-      first: "Often in",
-      second: "San Francisco",
-      link: "https://www.google.com/maps/place/San+Francisco,+CA/@37.757807,-122.5200009,12z/data=!3m1!4b1!4m6!3m5!1s0x80859a6d00690021:0x4a501367f076adff!8m2!3d37.7749295!4d-122.4194155!16zL20vMGQ2bHA?entry=ttu",
-    },
-    {
-      first: "From",
-      second: "Maryland",
-      link: "https://www.google.com/maps/place/Bethesda,+MD/@38.9850764,-77.162964,12.73z/data=!4m6!3m5!1s0x89b7cbb76a24022d:0x26b279f76a2bcd0d!8m2!3d38.984652!4d-77.0947092!16zL20vMGJ4YnI?entry=ttu",
-    },
+  const locationContent = [
+    [
+      {
+        first: "I live in",
+        second: "New York",
+        link: "https://www.google.com/maps/place/Manhattan,+New+York,+NY/@40.7591622,-74.0516318,12z/data=!3m1!4b1!4m6!3m5!1s0x89c2588f046ee661:0xa0b3281fcecc08c!8m2!3d40.7830603!4d-73.9712488!16zL20vMGNjNTY?entry=ttu",
+      },
+      {
+        first: "but am often in",
+        second: "San Francisco",
+        link: "https://www.google.com/maps/place/San+Francisco,+CA/@37.757807,-122.5200009,12z/data=!3m1!4b1!4m6!3m5!1s0x80859a6d00690021:0x4a501367f076adff!8m2!3d37.7749295!4d-122.4194155!16zL20vMGQ2bHA?entry=ttu",
+      },
+    ],
+    [
+      {
+        first: "Originally from",
+        second: "Maryland",
+        link: "https://www.google.com/maps/place/Bethesda,+MD/@38.9850764,-77.162964,12.73z/data=!4m6!3m5!1s0x89b7cbb76a24022d:0x26b279f76a2bcd0d!8m2!3d38.984652!4d-77.0947092!16zL20vMGJ4YnI?entry=ttu",
+      },
+    ],
   ]
 
   return (
@@ -88,12 +79,12 @@ export default function MainPage() {
         <SectionOpacityWrapper visible={curSpace === "WORK"}>
           <Section rows={workContent} space={"WORK"} />
         </SectionOpacityWrapper>
-        {/* <SectionOpacityWrapper visible={curSpace === "CONTACT"}>
-          <Section items={contactItems} space={"CONTACT"} />
+        <SectionOpacityWrapper visible={curSpace === "CONTACT"}>
+          <Section rows={contactContent} space={"CONTACT"} />
         </SectionOpacityWrapper>
         <SectionOpacityWrapper visible={curSpace === "LOCATION"}>
-          <Section items={locationItems} space={"LOCATION"} />
-        </SectionOpacityWrapper> */}
+          <Section rows={locationContent} space={"LOCATION"} />
+        </SectionOpacityWrapper>
       </OpacityWrapper>
       <SpacesButtons />
     </div>
