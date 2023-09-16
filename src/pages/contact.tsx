@@ -10,7 +10,7 @@ export default function About() {
   const content: Row[] = [
     [
       {
-        first: "Always reachable at",
+        first: "Reachable at",
         second: "maayan.albert@gmail.com",
         link: "mailto:maayan.albert@gmail.com",
       },
