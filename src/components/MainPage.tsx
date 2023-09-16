@@ -4,6 +4,7 @@ import { Space, getSpaceColor, useSpacesContext } from "@/SpaceContext"
 import SpacesButtons from "./SpacesButtons"
 import Section, { Item, Row } from "./Section"
 import { ReactNode, useEffect, useState } from "react"
+import { BackSelectable } from "./BackSelectable"
 
 /**
  * The main page where all of the content is
@@ -85,6 +86,7 @@ export default function MainPage() {
         <SectionOpacityWrapper visible={curSpace === "LOCATION"}>
           <Section rows={locationContent} space={"LOCATION"} />
         </SectionOpacityWrapper>
+        <BackSelectable />
       </OpacityWrapper>
       <SpacesButtons />
     </div>
