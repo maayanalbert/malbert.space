@@ -1,3 +1,4 @@
+import { HomeButton } from "@/components/HomeButton"
 import SpacesButtons from "@/components/SpacesButtons"
 import "@/styles/globals.css"
 import type { AppProps } from "next/app"
@@ -21,6 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
+        <HomeButton />
         <SpacesButtons />
       </QueryClientProvider>
     </>
