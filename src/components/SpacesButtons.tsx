@@ -6,10 +6,13 @@ import {
   spaceToRouterPath,
 } from "@/spacesHelpers"
 import { useRouter } from "next/router"
+import { HomeButton } from "./HomeButton"
 
 export default function SpacesButtons() {
   return (
-    <div className="absolute w-full flex sm:justify-start justify-center sm:p-28 sm:pb-32 p-8 h-[20%] bottom-0">
+    <div className="absolute w-full flex sm:justify-between justify-center sm:p-28 sm:pb-32 p-8 h-[20%] bottom-0">
+      <HomeButton />
+
       <div className="flex flex-row items-center justify-between gap-3 relative sm:w-fit w-full">
         <SpaceSelectable space="ABOUT" />
         <SpaceSelectable space="CONTACT" />
