@@ -1,5 +1,3 @@
-import { useIsMobile } from "@/GlobalsContext"
-
 export default function Title() {
   return (
     <div
@@ -10,10 +8,6 @@ export default function Title() {
       <p className="font-semibold sm:text-9xl text-5xl sm:leading-normal leading-tight">
         Hi, I'm Maayan.
       </p>
-
-      {/* <p className="font-semibold text-xl" style={{ marginRight: 100 }}>
-        I love computers. I love people. I love doing well by both.
-      </p> */}
     </div>
   )
 }

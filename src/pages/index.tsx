@@ -1,28 +1,18 @@
-import MainPage from "@/components/MainPage"
 import { useEffect } from "react"
-import { useIsMobile, useLowColor, useMidColor } from "@/GlobalsContext"
+import Title from "@/components/Title"
+import SpacesButtons from "@/components/SpacesButtons"
 
 /**
  * A wrapper for the main page
  */
 export default function Home() {
-  const isMobile = useIsMobile()
-  const midColor = useMidColor()
-  const fadeInTitle = useMidColor()
-  const lowColor = useLowColor()
-
   useEffect(() => {
     document.title = "Maayan"
   }, [])
 
-  // don't draw anything until we have a tile size
-  if (
-    isMobile === undefined ||
-    !midColor ||
-    fadeInTitle === undefined ||
-    !lowColor
+  return (
+    <div>
+      <Title />
+    </div>
   )
-    return null
-
-  return <MainPage />
 }

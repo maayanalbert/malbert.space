@@ -1,9 +1,8 @@
+import SpacesButtons from "@/components/SpacesButtons"
 import "@/styles/globals.css"
 import type { AppProps } from "next/app"
-import { GlobalsContextProvider } from "@/GlobalsContext"
 import { useMemo } from "react"
 import { QueryClient, QueryClientProvider } from "react-query"
-import { SpaceContextProvider } from "@/SpaceContext"
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = useMemo(
@@ -21,11 +20,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <GlobalsContextProvider>
-          <SpaceContextProvider>
-            <Component {...pageProps} />
-          </SpaceContextProvider>
-        </GlobalsContextProvider>
+        <Component {...pageProps} />
+        <SpacesButtons />
       </QueryClientProvider>
     </>
   )

@@ -1,4 +1,4 @@
-import { Space, getSpaceColor, useSpacesContext } from "@/SpaceContext"
+import { Space, getSpaceColor } from "@/spacesHelpers"
 
 export type Row = Item[]
 

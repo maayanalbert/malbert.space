@@ -1,17 +1,17 @@
-import { useIsMobile } from "@/GlobalsContext"
 import {
   Space,
   getSpaceColor,
   getSpaceName,
-  useSpacesContext,
-} from "@/SpaceContext"
-import { ArrowLeftIcon, XMarkIcon } from "@heroicons/react/24/solid"
+  routerPathToSpace,
+  spaceToRouterPath,
+} from "@/spacesHelpers"
+import { useRouter } from "next/router"
 
 export default function SpacesButtons() {
   return (
     <div className="absolute w-full flex sm:justify-start justify-center sm:p-28 sm:pb-32 p-8 h-[20%] bottom-0">
       <div className="flex flex-row items-center justify-between gap-3 relative sm:w-fit w-full">
-        <SpaceSelectable space="WORK" />
+        <SpaceSelectable space="ABOUT" />
         <SpaceSelectable space="CONTACT" />
         <SpaceSelectable space="LOCATION" />
       </div>
@@ -24,10 +24,12 @@ interface SpaceSelectableProps {
 }
 
 function SpaceSelectable({ space }: SpaceSelectableProps) {
-  const { curSpace, setCurSpace } = useSpacesContext()
+  const { route, push } = useRouter()
+
+  const curSpace = routerPathToSpace(route)
 
   const onPress = () => {
-    setCurSpace(space)
+    push(spaceToRouterPath(space))
   }
   return (
     <div
