@@ -11,8 +11,8 @@ export default function About() {
     [
       {
         first: "Reachable at",
-        second: "maayan.albert@gmail.com",
-        link: "mailto:maayan.albert@gmail.com",
+        second: "maayan@eve.space",
+        link: "mailto:maayan@eve.space",
       },
     ],
   ]
