@@ -9,7 +9,7 @@ export default function Title() {
         className="font-semibold sm:text-9xl text-5xl sm:leading-normal leading-tight"
         style={{ fontFamily: "Helvetica Neue" }}
       >
-        Hi, I'm Maayan.
+        Hi, I'm Maayan
       </p>
     </div>
   )
