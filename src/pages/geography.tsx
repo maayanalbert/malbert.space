@@ -17,7 +17,7 @@ export default function About() {
       {
         first: "and often visit",
         second: "San Francisco",
-        link: "https://www.google.com/maps/place/San+Francisco,+CA/@37.757807,-122.5200009,12z/data=!3m1!4b1!4m6!3m5!1s0x80859a6d00690021:0x4a501367f076adff!8m2!3d37.7749295!4d-122.4194155!16zL20vMGQ2bHA?entry=ttu",
+        link: "https://www.google.com/maps/place/Mission+District,+San+Francisco,+CA/@37.7516785,-122.4214165,13.85z/data=!4m6!3m5!1s0x808f7e3c5f803323:0x35800073de45189!8m2!3d37.7635614!4d-122.4173724!16zL20vMDJsbDdy?entry=ttu",
       },
     ],
     [
