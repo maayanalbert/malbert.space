@@ -1,13 +1,13 @@
 export type Space = "ABOUT" | "GEOGRAPHY" | "CONTACT"
 
-export function getSpaceColor(type: Space, opacity?: number) {
+export function getSpaceColor(type: Space) {
   switch (type) {
     case "ABOUT":
-      return opacity ? `rgba(252,50,88, ${opacity})` : "rgb(252,50,88)"
+      return "rgb(252,50,88)"
     case "GEOGRAPHY":
-      return opacity ? `rgba(232, 186,42, ${opacity})` : "rgb(232, 186,42)"
+      return "#F6CD00"
     case "CONTACT":
-      return opacity ? `rgba(0,151,254, ${opacity})` : "rgb(0,151,254)"
+      return "rgb(0,151,254)"
     default:
       return "gray"
   }
