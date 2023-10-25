@@ -16,6 +16,7 @@ export default function SpacesButtons() {
         <PageButton page="ABOUT" />
         <PageButton page="CONTACT" />
         <PageButton page="GEOGRAPHY" />
+        <HiddenButton />
       </div>
     </div>
   )
@@ -76,6 +77,36 @@ function PageButton({ page }: PageButtonProps) {
         style={{ color: "black" }}
       >
         {getPageName(page)}
+      </p>
+    </div>
+  )
+}
+
+function HiddenButton() {
+  const { route, push } = useRouter()
+
+  const curSpace = routerPathToPage(route)
+
+  // const onPress = () => {
+  //   push(pageToRouterPath(page))
+  // }
+
+  return (
+    <div
+      className={`text-center py-1.5 cursor-pointer relative 
+      sm:w-28 w-full text-base group bg-black`}
+      // onClick={onPress}
+    >
+      <p
+        className={`top-0 right-0 absolute h-full ${"w-full"}
+           transition-all ease-out group-hover:w-0`}
+        style={{ backgroundColor: "white" }}
+      />
+      <p // TODO: find out why this shows up as below the background color when it's not absolute
+        className="top-0 h-full w-full"
+        style={{ color: "white" }}
+      >
+        {"???"}
       </p>
     </div>
   )
