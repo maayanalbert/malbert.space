@@ -1,9 +1,9 @@
 import {
-  Space,
-  getSpaceColor,
-  getSpaceName,
-  routerPathToSpace,
-  spaceToRouterPath,
+  Page,
+  getPageColor,
+  getPageName,
+  routerPathToPage,
+  pageToRouterPath,
 } from "@/spacesHelpers"
 import { HomeIcon } from "@heroicons/react/24/outline"
 import { useRouter } from "next/router"
@@ -24,7 +24,7 @@ export default function SpacesButtons() {
 export function HomeButton() {
   const { route, push } = useRouter()
 
-  const curSpace = routerPathToSpace(route)
+  const curSpace = routerPathToPage(route)
 
   const onPress = () => {
     push("/")
@@ -41,22 +41,24 @@ export function HomeButton() {
            transition-all ease-out group-hover:w-0`}
         style={{ backgroundColor: "black" }}
       />
-      <div className="flex h-full w-full justify-center items-center">M</div>
+      <div className="flex h-full w-full justify-center items-center font-bold">
+        M
+      </div>
     </div>
   )
 }
 
 interface PageButtonProps {
-  space: Space
+  space: Page
 }
 
 function PageButton({ space }: PageButtonProps) {
   const { route, push } = useRouter()
 
-  const curSpace = routerPathToSpace(route)
+  const curSpace = routerPathToPage(route)
 
   const onPress = () => {
-    push(spaceToRouterPath(space))
+    push(pageToRouterPath(space))
   }
   return (
     <div
@@ -68,14 +70,16 @@ function PageButton({ space }: PageButtonProps) {
         className={`top-0 absolute h-full ${
           space === curSpace ? "w-0" : "w-full"
         }
-           transition-all ease-out group-hover:w-0`}
-        style={{ backgroundColor: getSpaceColor(space) }}
+           transition-all ease-out group-hover:${
+             space === curSpace ? "w-0" : "w-0"
+           }`}
+        style={{ backgroundColor: getPageColor(space) }}
       />
       <p // TODO: find out why this shows up as below the background color when it's not absolute
-        className="top-0 h-full w-full"
-        style={{ color: "black" }}
+        className="top-0 h-full w-full font-bold"
+        style={{ color: space === curSpace ? getPageColor(space) : "black" }}
       >
-        {getSpaceName(space)}
+        {getPageName(space)}
       </p>
     </div>
   )

@@ -1,4 +1,4 @@
-import { Space, getSpaceColor } from "@/spacesHelpers"
+import { Page, getPageColor } from "@/spacesHelpers"
 
 export type Row = Item[]
 
@@ -10,7 +10,7 @@ export type Item = {
 
 interface Props {
   rows: Row[]
-  space: Space
+  space: Page
 }
 
 export default function Section({ rows, space }: Props) {
@@ -35,7 +35,7 @@ export default function Section({ rows, space }: Props) {
 
 interface ItemProps {
   item: Item
-  space: Space
+  space: Page
 }
 
 // can't use curSpace because of animation related delays
@@ -48,7 +48,7 @@ function Item({ item, space }: ItemProps) {
         href={link}
         target="_blank"
         className="hover:underline font-bold"
-        style={{ color: getSpaceColor(space) }}
+        style={{ color: getPageColor(space) }}
       >
         {second}
       </a>
