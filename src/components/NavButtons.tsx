@@ -96,16 +96,11 @@ function PageButton({ page, hoverButton, setHoverButton }: PageButtonProps) {
       >
         <p
           className={`top-0 absolute h-full ${
-            !!hoverButton && hoverButton !== page
-              ? "w-full"
-              : curPage === page
-              ? "w-0"
-              : "w-full"
+            curPage === page ? "w-0" : "w-full"
           }
-           transition-all ease-out group-hover:w-0`}
+           transition-all ease-out group-hover:w-[50%]`}
           style={{
             backgroundColor: getPageColor(page),
-            opacity: curPage === page ? 0.5 : 1,
           }}
         />
         <p // TODO: find out why this shows up as below the background color when it's not absolute
