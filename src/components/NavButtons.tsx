@@ -1,5 +1,5 @@
 import {
-  Space,
+  Space as Page,
   getPageColor,
   getPageName,
   routerPathToPage,
@@ -13,9 +13,9 @@ export default function SpacesButtons() {
     <div className="absolute w-full flex sm:justify-start justify-center sm:p-28 sm:pb-32 p-8 h-[20%] bottom-0">
       <div className="flex flex-row items-center justify-between gap-3 relative sm:w-fit w-full">
         <HomeButton />
-        <PageButton space="ABOUT" />
-        <PageButton space="CONTACT" />
-        <PageButton space="GEOGRAPHY" />
+        <PageButton page="ABOUT" />
+        <PageButton page="CONTACT" />
+        <PageButton page="GEOGRAPHY" />
       </div>
     </div>
   )
@@ -47,16 +47,16 @@ export function HomeButton() {
 }
 
 interface PageButtonProps {
-  space: Space
+  page: Page
 }
 
-function PageButton({ space }: PageButtonProps) {
+function PageButton({ page }: PageButtonProps) {
   const { route, push } = useRouter()
 
   const curSpace = routerPathToPage(route)
 
   const onPress = () => {
-    push(pageToRouterPath(space))
+    push(pageToRouterPath(page))
   }
   return (
     <div
@@ -66,16 +66,16 @@ function PageButton({ space }: PageButtonProps) {
     >
       <p
         className={`top-0 absolute h-full ${
-          space === curSpace ? "w-0" : "w-full"
+          page === curSpace ? "w-0" : "w-full"
         }
            transition-all ease-out group-hover:w-0`}
-        style={{ backgroundColor: getPageColor(space) }}
+        style={{ backgroundColor: getPageColor(page) }}
       />
       <p // TODO: find out why this shows up as below the background color when it's not absolute
         className="top-0 h-full w-full"
         style={{ color: "black" }}
       >
-        {getPageName(space)}
+        {getPageName(page)}
       </p>
     </div>
   )
