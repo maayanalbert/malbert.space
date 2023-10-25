@@ -1,30 +1,48 @@
 import {
-  Space,
-  getSpaceColor,
-  getSpaceName,
-  routerPathToSpace,
-  spaceToRouterPath,
-} from "@/spacesHelpers"
-import { HomeIcon } from "@heroicons/react/24/outline"
+  Page,
+  getPageColor,
+  getPageName,
+  routerPathToPage,
+  pageToRouterPath,
+} from "@/pageHelpers"
 import { useRouter } from "next/router"
+import { useState } from "react"
 
 export default function SpacesButtons() {
+  const [hoverButton, setHoverButton] = useState<Page | undefined>()
   return (
     <div className="absolute w-full flex sm:justify-start justify-center sm:p-28 sm:pb-32 p-8 h-[20%] bottom-0">
-      <div className="flex flex-row items-center justify-between gap-3 relative sm:w-fit w-full">
-        <HomeButton />
-        <PageButton space="ABOUT" />
-        <PageButton space="CONTACT" />
-        <PageButton space="GEOGRAPHY" />
+      <div className="flex flex-row items-center justify-between relative sm:w-fit w-full">
+        <HomeButton hoverButton={hoverButton} setHoverButton={setHoverButton} />
+        <PageButton
+          page="ABOUT"
+          hoverButton={hoverButton}
+          setHoverButton={setHoverButton}
+        />
+        <PageButton
+          page="CONTACT"
+          hoverButton={hoverButton}
+          setHoverButton={setHoverButton}
+        />
+        <PageButton
+          page="GEOGRAPHY"
+          hoverButton={hoverButton}
+          setHoverButton={setHoverButton}
+        />
       </div>
     </div>
   )
 }
 
-export function HomeButton() {
+interface HomeButtonProps {
+  hoverButton?: Page
+  setHoverButton: (page?: Page) => void
+}
+
+export function HomeButton({ hoverButton, setHoverButton }: HomeButtonProps) {
   const { route, push } = useRouter()
 
-  const curSpace = routerPathToSpace(route)
+  const curPage = routerPathToPage(route)
 
   const onPress = () => {
     push("/")
@@ -35,9 +53,13 @@ export function HomeButton() {
       className={`flex justify-start items-start sm:py-1.5 py-2 cursor-pointer relative 
       sm:w-9 w-full text-sm sm:text-base group`}
       onClick={onPress}
+      onMouseEnter={() => setHoverButton("HOME")}
+      onMouseLeave={() => setHoverButton()}
     >
       <p
-        className={`top-0 absolute h-full ${curSpace ? "w-full" : "w-0"}
+        className={`top-0 absolute h-full ${
+          curPage || (hoverButton && hoverButton !== "HOME") ? "w-full" : "w-0"
+        }
            transition-all ease-out group-hover:w-0`}
         style={{ backgroundColor: "black" }}
       />
@@ -47,36 +69,54 @@ export function HomeButton() {
 }
 
 interface PageButtonProps {
-  space: Space
+  page: Page
+  hoverButton?: Page
+  setHoverButton: (page?: Page) => void
 }
 
-function PageButton({ space }: PageButtonProps) {
+function PageButton({ page, hoverButton, setHoverButton }: PageButtonProps) {
   const { route, push } = useRouter()
 
-  const curSpace = routerPathToSpace(route)
+  const curPage = routerPathToPage(route)
 
   const onPress = () => {
-    push(spaceToRouterPath(space))
+    push(pageToRouterPath(page))
   }
+
   return (
     <div
-      className={`text-center py-1.5 cursor-pointer relative 
-      sm:w-28 w-full text-base group`}
-      onClick={onPress}
+      className="pl-3"
+      onMouseEnter={() => setHoverButton(page)}
+      onMouseLeave={() => setHoverButton()}
     >
-      <p
-        className={`top-0 absolute h-full ${
-          space === curSpace ? "w-0" : "w-full"
-        }
-           transition-all ease-out group-hover:w-0`}
-        style={{ backgroundColor: getSpaceColor(space) }}
-      />
-      <p // TODO: find out why this shows up as below the background color when it's not absolute
-        className="top-0 h-full w-full"
-        style={{ color: "black" }}
+      <div
+        className={`text-center py-1.5 cursor-pointer relative
+      sm:w-28 w-full text-base group`}
+        onClick={onPress}
       >
-        {getSpaceName(space)}
-      </p>
+        <p
+          className={`top-0 absolute h-full ${
+            !!hoverButton && hoverButton !== page
+              ? "w-full"
+              : curPage === page
+              ? "w-0"
+              : "w-full"
+          }
+           transition-all ease-out group-hover:w-0`}
+          style={{
+            backgroundColor: getPageColor(page),
+            opacity: curPage === page ? 0.5 : 1,
+          }}
+        />
+        <p // TODO: find out why this shows up as below the background color when it's not absolute
+          className="top-0 h-full w-full"
+          style={{
+            color: "black",
+          }}
+        >
+          {getPageName(page)}
+        </p>
+      </div>
     </div>
   )
 }
