@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import SpacesButtons from "@/components/SpacesButtons"
+import SpacesButtons from "@/components/NavButtons"
 import Section, { Row } from "@/components/Section"
 
 export default function About() {

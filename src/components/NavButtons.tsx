@@ -13,9 +13,9 @@ export default function SpacesButtons() {
     <div className="absolute w-full flex sm:justify-start justify-center sm:p-28 sm:pb-32 p-8 h-[20%] bottom-0">
       <div className="flex flex-row items-center justify-between gap-3 relative sm:w-fit w-full">
         <HomeButton />
-        <SpaceSelectable space="ABOUT" />
-        <SpaceSelectable space="CONTACT" />
-        <SpaceSelectable space="GEOGRAPHY" />
+        <PageButton space="ABOUT" />
+        <PageButton space="CONTACT" />
+        <PageButton space="GEOGRAPHY" />
       </div>
     </div>
   )
@@ -46,11 +46,11 @@ export function HomeButton() {
   )
 }
 
-interface SpaceSelectableProps {
+interface PageButtonProps {
   space: Space
 }
 
-function SpaceSelectable({ space }: SpaceSelectableProps) {
+function PageButton({ space }: PageButtonProps) {
   const { route, push } = useRouter()
 
   const curSpace = routerPathToSpace(route)

@@ -1,5 +1,5 @@
 import { HomeButton } from "@/components/HomeButton"
-import SpacesButtons from "@/components/SpacesButtons"
+import SpacesButtons from "@/components/NavButtons"
 import "@/styles/globals.css"
 import type { AppProps } from "next/app"
 import { useMemo } from "react"
