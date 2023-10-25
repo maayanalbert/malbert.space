@@ -1,4 +1,4 @@
-import { Space, getSpaceColor } from "@/spacesHelpers"
+import { Space as Page, getPageColor } from "@/pageHelpers"
 
 export type Row = Item[]
 
@@ -10,7 +10,7 @@ export type Item = {
 
 interface Props {
   rows: Row[]
-  space: Space
+  space: Page
 }
 
 export default function Section({ rows, space }: Props) {
@@ -24,7 +24,7 @@ export default function Section({ rows, space }: Props) {
         {rows.map((row, index) => (
           <div className="flex flex-col sm:gap-2 gap-1" key={index}>
             {row.map((item, index) => (
-              <Item key={index} item={item} space={space} />
+              <Item key={index} item={item} page={space} />
             ))}
           </div>
         ))}
@@ -35,11 +35,11 @@ export default function Section({ rows, space }: Props) {
 
 interface ItemProps {
   item: Item
-  space: Space
+  page: Page
 }
 
 // can't use curSpace because of animation related delays
-function Item({ item, space }: ItemProps) {
+export function Item({ item, page: space }: ItemProps) {
   const { first, second, link } = item
   return (
     <div className="flex sm:flex-row flex-col sm:gap-2 text-start">
@@ -48,7 +48,7 @@ function Item({ item, space }: ItemProps) {
         href={link}
         target="_blank"
         className="hover:underline font-bold"
-        style={{ color: getSpaceColor(space) }}
+        style={{ color: getPageColor(space) }}
       >
         {second}
       </a>

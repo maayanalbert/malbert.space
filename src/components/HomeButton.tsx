@@ -1,11 +1,11 @@
-import { routerPathToSpace } from "@/spacesHelpers"
+import { routerPathToPage } from "@/pageHelpers"
 import { HomeIcon } from "@heroicons/react/24/outline"
 import { useRouter } from "next/router"
 
 export function HomeButton() {
   const { route, push } = useRouter()
 
-  const curSpace = routerPathToSpace(route)
+  const curSpace = routerPathToPage(route)
 
   const onPress = () => {
     push("/")
