@@ -27,7 +27,7 @@ export default function About() {
         link: "https://avenue.so/blog/avenue-launches-signal-views",
       },
       {
-        first: "and am now helping people be the most themselves with",
+        first: "and am now helping people see themselves with",
         second: "Eve",
         link: "https://www.eve.space/",
       },
