@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import SpacesButtons from "@/components/NavButtons"
-import Section, { Item, Row } from "@/components/Section"
+import { Item, Row } from "@/components/Item"
 
 export default function About() {
   useEffect(() => {
@@ -28,21 +28,22 @@ export default function About() {
   }
 
   return (
-    <div
-      className={`absolute flex-col h-full w-full sm:p-28 p-8 flex items-start justify-start 
-      h-[90%] sm:text-2xl text-lg text-center flex-col sm:mt-[64px]`}
-      style={{ top: 38 * 4 }}
-    >
-      <div className="flex sm:flex-row flex-col sm:gap-2 gap-12 w-full justify-start">
-        <div className="flex flex-col sm:gap-4 gap-1">
-          <Item item={NY} page={page} />
-          <Item item={SF} page={page} />
-        </div>
-        <div className="flex flex-col sm:gap-4 gap-1">
-          <div className="opacity-0 cursor-default pointer-events-none">
+    <div className="h-full w-full">
+      <div
+        className="absolute sm:pl-28 pl-8"
+        style={{ bottom: `calc(50% + ${6 * 4}px)` }}
+      >
+        <div className="flex sm:flex-row flex-col sm:gap-2 gap-12 w-full justify-start">
+          <div className="flex flex-col sm:gap-4 gap-1">
+            <Item item={NY} page={page} />
+            <Item item={SF} page={page} />
+          </div>
+          <div className="flex flex-col sm:gap-4 gap-1">
+            <div className="opacity-0 cursor-default pointer-events-none">
+              <Item item={MD} page={page} />
+            </div>
             <Item item={MD} page={page} />
           </div>
-          <Item item={MD} page={page} />
         </div>
       </div>
     </div>

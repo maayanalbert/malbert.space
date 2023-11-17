@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import SpacesButtons from "@/components/NavButtons"
-import Section, { Item, Row } from "@/components/Section"
+import { Item, Row } from "@/components/Item"
 
 export default function About() {
   useEffect(() => {
@@ -14,12 +14,13 @@ export default function About() {
   }
 
   return (
-    <div
-      className={`absolute flex-col h-full w-full sm:p-28 p-8 flex items-start justify-start 
-      h-[90%] sm:text-2xl text-lg text-center flex-col sm:mt-[92px]`}
-      style={{ top: 38 * 4 }}
-    >
-      <Item item={reachMe} page={"CONTACT"} />
+    <div className="h-full w-full">
+      <div
+        className="absolute sm:pl-28 pl-8"
+        style={{ bottom: `calc(50% + ${6 * 4}px)` }}
+      >
+        <Item item={reachMe} page={"CONTACT"} />
+      </div>
     </div>
   )
 }
