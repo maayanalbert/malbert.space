@@ -20,7 +20,7 @@ export default function About() {
               item={{
                 first: "I studied Design & CS at",
                 second: "Carnegie Mellon",
-                link: "https://www.design.cmu.edu/user/967",
+                link: "https://www.cmu.edu/",
               }}
               page={"ABOUT"}
             />
@@ -38,16 +38,19 @@ export default function About() {
             <Item
               key={0}
               item={{
-                first: "I scaled Avenue Ops as their",
-                second: "Founding Engineer",
-                link: "https://avenue.so/blog/avenue-launches-signal-views",
+                first: "I did product and engineering work for",
+                second: "Google",
+                link: "https://www.google.com/travel/",
+                third: "and",
+                fourth: "Apple",
+                link2: "https://www.apple.com/iwork/",
               }}
               page={"ABOUT"}
             />
             <Item
               key={1}
               item={{
-                first: "and am now helping people understand themselves with",
+                first: "and am now building the voice of the void with",
                 second: "Eve",
                 link: "https://www.eve.space/",
               }}

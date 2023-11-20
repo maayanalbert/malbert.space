@@ -6,6 +6,9 @@ export type Item = {
   first: string
   second: string
   link: string
+  third?: string
+  fourth?: string
+  link2?: string
 }
 
 interface Props {
@@ -14,19 +17,33 @@ interface Props {
 }
 
 // can't use curSpace because of animation related delays
-export function Item({ item, page: space }: Props) {
-  const { first, second, link } = item
+export function Item({ item, page }: Props) {
+  const { first, second, link, third, fourth, link2 } = item
   return (
-    <div className="flex sm:flex-row flex-col sm:gap-2 text-start sm:text-[22px] text-lg">
-      <p style={{ color: "rgba(0, 0, 0, .85)" }}>{first}</p>
+    <p
+      className="sm:text-[22px] text-lg"
+      style={{ color: "rgba(0, 0, 0, .85)" }}
+    >
+      {first}{" "}
       <a
         href={link}
         target="_blank"
         className="hover:underline"
-        style={{ color: getPageColor(space) }}
+        style={{ color: getPageColor(page) }}
       >
         {second}
       </a>
-    </div>
+      {third && ` ${third} `}
+      {fourth && (
+        <a
+          href={link2}
+          target="_blank"
+          className="hover:underline"
+          style={{ color: getPageColor(page) }}
+        >
+          {fourth}
+        </a>
+      )}
+    </p>
   )
 }
