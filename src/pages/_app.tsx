@@ -1,5 +1,4 @@
-import { HomeButton } from "@/components/HomeButton"
-import SpacesButtons from "@/components/NavButtons"
+import NavButtons from "@/components/NavButtons"
 import "@/styles/globals.css"
 import type { AppProps } from "next/app"
 import { useMemo } from "react"
@@ -21,8 +20,14 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-        <SpacesButtons />
+        <div className="h-full w-full pl-8 sm:pl-28">
+          <div className="h-[90%] w-full">
+            <Component {...pageProps} />
+          </div>
+          <div className="h-[10%] w-full">
+            <NavButtons />
+          </div>
+        </div>
       </QueryClientProvider>
     </>
   )

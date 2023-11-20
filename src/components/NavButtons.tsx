@@ -10,7 +10,7 @@ import { useRouter } from "next/router"
 
 export default function SpacesButtons() {
   return (
-    <div className="absolute w-full flex sm:justify-start justify-center sm:p-28 sm:pb-32 p-8 h-[20%] bottom-0">
+    <div className="w-full flex sm:justify-start justify-center items-start">
       <div className="flex flex-row items-center justify-between gap-3 relative sm:w-fit w-full">
         <HomeButton />
         <PageButton page="ABOUT" />
