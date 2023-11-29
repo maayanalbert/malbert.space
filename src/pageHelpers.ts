@@ -3,9 +3,9 @@ export type Space = "ABOUT" | "GEOGRAPHY" | "CONTACT"
 export function getPageColor(type: Space) {
   switch (type) {
     case "ABOUT":
-      return "rgb(252,50,88)"
+      return "rgb(255,70,100)"
     case "GEOGRAPHY":
-      return "#EDC500"
+      return "#E1C040"
     case "CONTACT":
       return "rgb(0,151,254)"
     default:

@@ -10,12 +10,12 @@ export default function About() {
 
   return (
     <div className="h-[85%] w-full flex flex-col sm:items-start items-center justify-center sm:pl-28 sm:p-0 p-8">
-      <p className="absolute sm:w-[500px] text-lg">
+      <p className="sm:w-[500px] text-lg" style={{ color: "rgb(28, 28, 28)" }}>
         I studied Design & CS at{" "}
         <a
           // href={link}
           target="_blank"
-          className="underline cursor-pointer"
+          className="hover:underline cursor-pointer"
           style={{ color: getPageColor("ABOUT") }}
         >
           Carnegie Mellon
@@ -25,6 +25,7 @@ export default function About() {
           // href={link}
           target="_blank"
           className="hover:underline cursor-pointer"
+          style={{ color: getPageColor("ABOUT") }}
         >
           Authoring Environments
         </a>
@@ -34,6 +35,7 @@ export default function About() {
           // href={link}
           target="_blank"
           className="hover:underline cursor-pointer"
+          style={{ color: getPageColor("ABOUT") }}
         >
           Apple
         </a>
@@ -42,6 +44,7 @@ export default function About() {
           // href={link}
           target="_blank"
           className="hover:underline cursor-pointer"
+          style={{ color: getPageColor("ABOUT") }}
         >
           Google
         </a>
@@ -50,53 +53,7 @@ export default function About() {
           // href={link}
           target="_blank"
           className="hover:underline cursor-pointer"
-        >
-          Eve
-        </a>
-        .
-      </p>
-      <p
-        className="sm:w-[500px] text-lg"
-        style={{ zIndex: 1, color: "rgb(28, 28, 28)" }}
-      >
-        I studied Design & CS at{" "}
-        <a
-          // href={link}
-          target="_blank"
-          className={`hover:text-[rgb(252,50,88)] cursor-pointer`}
-        >
-          Carnegie Mellon
-        </a>
-        , where I wrote my thesis on{" "}
-        <a
-          // href={link}
-          target="_blank"
-          className="hover:underline cursor-pointer"
-        >
-          Authoring Environments
-        </a>
-        .<br />
-        <br /> I spent time working at{" "}
-        <a
-          // href={link}
-          target="_blank"
-          className="hover:underline cursor-pointer"
-        >
-          Apple
-        </a>
-        ,{" "}
-        <a
-          // href={link}
-          target="_blank"
-          className="hover:underline cursor-pointer"
-        >
-          Google
-        </a>
-        , and a few startups, and am now building the voice of the void with{" "}
-        <a
-          // href={link}
-          target="_blank"
-          className="hover:underline cursor-pointer"
+          style={{ color: getPageColor("ABOUT") }}
         >
           Eve
         </a>
@@ -105,5 +62,3 @@ export default function About() {
     </div>
   )
 }
-
-// style={{ borderColor: getPageColor("ABOUT"), borderBottomWidth: 1.5 }}
