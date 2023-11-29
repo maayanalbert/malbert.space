@@ -1,6 +1,7 @@
 import { useEffect } from "react"
-import SpacesButtons from "@/components/NavButtons"
+import NavButtons from "@/components/NavButtons"
 import { Item, Row } from "@/components/Item"
+import { getPageColor } from "@/pageHelpers"
 
 export default function About() {
   useEffect(() => {
@@ -28,24 +29,42 @@ export default function About() {
   }
 
   return (
-    <div className="h-full w-full">
-      <div
-        className="absolute sm:pl-28 pl-8"
-        style={{ bottom: `calc(50% + ${6 * 4}px)` }}
+    <div
+      className="h-[85%] w-full flex flex-col sm:items-start items-center justify-center sm:pl-28 sm:p-0 p-8"
+      style={{ color: "rgb(28, 28, 28)" }}
+    >
+      <p
+        className="sm:w-[400px] text-lg  sm:ml-[45%] sm:mt-[100px]"
+        style={{ color: "rgb(28, 28, 28)" }}
       >
-        <div className="flex sm:flex-row flex-col sm:gap-2 w-full justify-start">
-          <div className="flex flex-col sm:gap-4 gap-1">
-            <Item item={NY} page={page} />
-            <Item item={SF} page={page} />
-          </div>
-          <div className="flex flex-col sm:gap-4 gap-1">
-            <div className="opacity-0 cursor-default pointer-events-none">
-              <Item item={MD} page={page} />
-            </div>
-            <Item item={MD} page={page} />
-          </div>
-        </div>
-      </div>
+        While I live in{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="hover:underline cursor-pointer"
+          style={{ color: getPageColor("GEOGRAPHY") }}
+        >
+          New York
+        </a>
+        , I can often be found in{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="hover:underline cursor-pointer"
+          style={{ color: getPageColor("GEOGRAPHY") }}
+        >
+          San Francisco
+        </a>{" "}
+        and am originally from{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="hover:underline cursor-pointer"
+          style={{ color: getPageColor("GEOGRAPHY") }}
+        >
+          Maryland
+        </a>
+      </p>
     </div>
   )
 }
