@@ -33,7 +33,7 @@ export default function About() {
         className="absolute sm:pl-28 pl-8"
         style={{ bottom: `calc(50% + ${6 * 4}px)` }}
       >
-        <div className="flex sm:flex-row flex-col sm:gap-2 gap-12 w-full justify-start">
+        <div className="flex sm:flex-row flex-col sm:gap-2 w-full justify-start">
           <div className="flex flex-col sm:gap-4 gap-1">
             <Item item={NY} page={page} />
             <Item item={SF} page={page} />
