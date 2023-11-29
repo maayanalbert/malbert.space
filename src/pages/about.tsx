@@ -1,6 +1,7 @@
 import { useEffect } from "react"
-import SpacesButtons from "@/components/NavButtons"
+import NavButtons from "@/components/NavButtons"
 import { Item, Row } from "@/components/Item"
+import { getPageColor } from "@/pageHelpers"
 
 export default function About() {
   useEffect(() => {
@@ -8,57 +9,101 @@ export default function About() {
   }, [])
 
   return (
-    <div className="h-full w-full">
-      <div
-        className="absolute sm:pl-28 pl-8"
-        style={{ bottom: `calc(50% - ${11 * 4}px)` }}
+    <div className="h-[85%] w-full flex flex-col sm:items-start items-center justify-center sm:pl-28 sm:p-0 p-8">
+      <p className="absolute sm:w-[500px] text-lg">
+        I studied Design & CS at{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="underline cursor-pointer"
+          style={{ color: getPageColor("ABOUT") }}
+        >
+          Carnegie Mellon
+        </a>
+        , where I wrote my thesis on{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="hover:underline cursor-pointer"
+        >
+          Authoring Environments
+        </a>
+        .<br />
+        <br /> I spent time working at{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="hover:underline cursor-pointer"
+        >
+          Apple
+        </a>
+        ,{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="hover:underline cursor-pointer"
+        >
+          Google
+        </a>
+        , and a few startups, and am now building the voice of the void with{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="hover:underline cursor-pointer"
+        >
+          Eve
+        </a>
+        .
+      </p>
+      <p
+        className="sm:w-[500px] text-lg"
+        style={{ zIndex: 1, color: "rgb(28, 28, 28)" }}
       >
-        <div className="flex flex-col sm:gap-14 gap-12 items-start">
-          <div className="flex flex-col sm:gap-2 gap-1" key={0}>
-            <Item
-              key={0}
-              item={{
-                first: "I studied Design & CS at",
-                second: "Carnegie Mellon",
-                link: "https://www.cmu.edu/",
-              }}
-              page={"ABOUT"}
-            />
-            <Item
-              key={1}
-              item={{
-                first: "where I wrote my thesis on",
-                second: "Authoring Environments",
-                link: "https://paper.dropbox.com/doc/Stamper-An-Artboard-Oriented-Programming-Environment-QXtfMXshBFBNCu6iCtx2J",
-              }}
-              page={"ABOUT"}
-            />
-          </div>
-          <div className="flex flex-col sm:gap-2 gap-1" key={0}>
-            <Item
-              key={0}
-              item={{
-                first: "I did product and engineering work for",
-                second: "Google",
-                link: "https://www.google.com/travel/",
-                third: "and",
-                fourth: "Apple",
-                link2: "https://www.apple.com/iwork/",
-              }}
-              page={"ABOUT"}
-            />
-            <Item
-              key={1}
-              item={{
-                first: "and am now building the voice of the void with",
-                second: "Eve",
-                link: "https://www.eve.space/",
-              }}
-              page={"ABOUT"}
-            />
-          </div>
-        </div>
-      </div>
+        I studied Design & CS at{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className={`hover:text-[rgb(252,50,88)] cursor-pointer`}
+        >
+          Carnegie Mellon
+        </a>
+        , where I wrote my thesis on{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="hover:underline cursor-pointer"
+        >
+          Authoring Environments
+        </a>
+        .<br />
+        <br /> I spent time working at{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="hover:underline cursor-pointer"
+        >
+          Apple
+        </a>
+        ,{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="hover:underline cursor-pointer"
+        >
+          Google
+        </a>
+        , and a few startups, and am now building the voice of the void with{" "}
+        <a
+          // href={link}
+          target="_blank"
+          className="hover:underline cursor-pointer"
+        >
+          Eve
+        </a>
+        .
+      </p>
     </div>
   )
 }
+
+// style={{ borderColor: getPageColor("ABOUT"), borderBottomWidth: 1.5 }}
