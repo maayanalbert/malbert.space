@@ -13,18 +13,19 @@ import { useRouter } from "next/router"
 export default function NavButtons() {
   return (
     <div className="absolute w-full flex sm:justify-start justify-center sm:p-28 sm:pb-24 p-8 bottom-0">
-      <div className="flex flex-row items-center justify-between gap-3 relative sm:w-fit w-full">
+      <div className="flex flex-row items-center justify-between relative sm:w-fit w-full">
         <HomeButton />
-        <PageButton page="ABOUT" />
-        <PageButton page="CONTACT" />
-        <PageButton page="GEOGRAPHY" />
+        <PageButton page="ABOUT" index={0} />
+        <PageButton page="CONTACT" index={1} />
+        <PageButton page="GEOGRAPHY" index={2} />
       </div>
     </div>
   )
 }
 
 export function HomeButton() {
-  const { curPage, setCurPage } = usePageContext()
+  const { curPage, setCurPage, curHoverIndex, setCurHoverIndex } =
+    usePageContext()
 
   const onPress = () => {
     setCurPage()
@@ -35,6 +36,8 @@ export function HomeButton() {
       className={`flex justify-start items-start sm:py-1.5 py-2 cursor-pointer relative 
       sm:w-9 w-full text-sm sm:text-base group`}
       onClick={onPress}
+      onMouseOver={() => setCurHoverIndex(-1)}
+      onMouseOut={() => setCurHoverIndex()}
     >
       <p
         className={`top-0 absolute h-full ${curPage ? "w-full" : "w-0"}
@@ -48,10 +51,11 @@ export function HomeButton() {
 
 interface PageButtonProps {
   page: Page
+  index: number
 }
 
-function PageButton({ page }: PageButtonProps) {
-  const { curPage, setCurPage } = usePageContext()
+function PageButton({ page, index }: PageButtonProps) {
+  const { curPage, setCurPage, setCurHoverIndex } = usePageContext()
 
   const onPress = () => {
     setCurPage(page)
@@ -61,6 +65,8 @@ function PageButton({ page }: PageButtonProps) {
       className={`text-center py-1.5 cursor-pointer relative 
       sm:w-28 w-full text-base group`}
       onClick={onPress}
+      onMouseOver={() => setCurHoverIndex(index)}
+      onMouseOut={() => setCurHoverIndex()}
     >
       <p
         className={`top-0 absolute h-full ${page === curPage ? "w-0" : "w-full"}

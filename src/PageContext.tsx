@@ -12,8 +12,10 @@ export const Pages = ["ABOUT", "CONTACT", "GEOGRAPHY"]
 
 interface PageContextType {
   curPage?: Page
-  curPageIndex: number // -1 - 2
+  curIndex: number // -1 - 2
   setCurPage: (page?: Page) => void
+  curHoverIndex?: number // -1 - 2 or undefined
+  setCurHoverIndex: (index?: number) => void
 }
 
 /**
@@ -21,8 +23,10 @@ interface PageContextType {
  */
 const PageContext = createContext<PageContextType>({
   curPage: undefined,
-  curPageIndex: 0,
+  curIndex: 0,
   setCurPage: () => undefined,
+  curHoverIndex: undefined,
+  setCurHoverIndex: () => undefined,
 })
 
 interface Props {
@@ -34,20 +38,23 @@ interface Props {
  */
 export function PageContextProvider({ children }: Props) {
   const [curPage, setCurPage] = useState<Page>()
-  const [curPageIndex, setCurPageIndex] = useState(0)
+  const [curIndex, setCurIndex] = useState(0)
+  const [curHoverIndex, setCurHoverIndex] = useState<number>()
 
   return (
     <PageContext.Provider
       value={{
-        curPageIndex,
+        curIndex: curIndex,
         curPage,
+        curHoverIndex,
+        setCurHoverIndex,
         setCurPage: (page) => {
           if (page) {
             setCurPage(page)
-            setCurPageIndex(Pages.indexOf(page))
+            setCurIndex(Pages.indexOf(page))
           } else {
             setCurPage(undefined)
-            setCurPageIndex(-1)
+            setCurIndex(-1)
           }
         },
       }}
