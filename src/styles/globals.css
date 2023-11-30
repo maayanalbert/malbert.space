@@ -29,6 +29,10 @@ div#__next {
   outline: none;
 }
 
+.touchable {
+  -webkit-tap-highlight-color: transparent;
+}
+
 input:focus {
   outline: none;
 }
