@@ -1,18 +1,7 @@
-import { useEffect } from "react"
-import NavButtons from "@/components/NavButtons"
-import { Item, Row } from "@/components/Item"
 import { getPageColor } from "@/pageHelpers"
-import { HomeLayout } from "."
+import { useEffect } from "react"
 
-export default function About() {
-  useEffect(() => {
-    document.title = "Maayan"
-  }, [])
-
-  return <HomeLayout infoChild={<GeographyInfo />} />
-}
-
-function GeographyInfo() {
+export function GeographyInfo() {
   return (
     <p className="text-lg">
       While I live in{" "}

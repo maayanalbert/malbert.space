@@ -1,11 +1,13 @@
+import { usePageContext } from "@/InfoContext"
 import {
-  Space as Page,
+  Page as Page,
   getPageColor,
   getPageName,
   routerPathToPage,
   pageToRouterPath,
 } from "@/pageHelpers"
 import { HomeIcon } from "@heroicons/react/24/outline"
+import { set } from "lodash"
 import { useRouter } from "next/router"
 
 export default function NavButtons() {
@@ -22,12 +24,10 @@ export default function NavButtons() {
 }
 
 export function HomeButton() {
-  const { route, push } = useRouter()
-
-  const curSpace = routerPathToPage(route)
+  const { curPage, setCurPage } = usePageContext()
 
   const onPress = () => {
-    push("/")
+    setCurPage(undefined)
   }
 
   return (
@@ -37,7 +37,7 @@ export function HomeButton() {
       onClick={onPress}
     >
       <p
-        className={`top-0 absolute h-full ${curSpace ? "w-full" : "w-0"}
+        className={`top-0 absolute h-full ${curPage ? "w-full" : "w-0"}
            transition-all ease-out group-hover:w-0`}
         style={{ backgroundColor: "black" }}
       />
@@ -51,12 +51,10 @@ interface PageButtonProps {
 }
 
 function PageButton({ page }: PageButtonProps) {
-  const { route, push } = useRouter()
-
-  const curSpace = routerPathToPage(route)
+  const { curPage, setCurPage } = usePageContext()
 
   const onPress = () => {
-    push(pageToRouterPath(page))
+    setCurPage(page)
   }
   return (
     <div
@@ -65,9 +63,7 @@ function PageButton({ page }: PageButtonProps) {
       onClick={onPress}
     >
       <p
-        className={`top-0 absolute h-full ${
-          page === curSpace ? "w-0" : "w-full"
-        }
+        className={`top-0 absolute h-full ${page === curPage ? "w-0" : "w-full"}
            transition-all ease-out group-hover:w-0`}
         style={{ backgroundColor: getPageColor(page) }}
       />
