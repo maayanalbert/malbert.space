@@ -1,5 +1,4 @@
-import { HomeButton } from "@/components/HomeButton"
-import NavButtons from "@/components/NavButtons"
+import { PageContextProvider } from "@/PageContext"
 import "@/styles/globals.css"
 import type { AppProps } from "next/app"
 import { useMemo } from "react"
@@ -21,8 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-        <NavButtons />
+        <PageContextProvider>
+          <Component {...pageProps} />
+        </PageContextProvider>
       </QueryClientProvider>
     </>
   )

@@ -1,16 +1,18 @@
+import { usePageContext } from "@/PageContext"
 import {
-  Space as Page,
+  Page as Page,
   getPageColor,
   getPageName,
   routerPathToPage,
   pageToRouterPath,
 } from "@/pageHelpers"
 import { HomeIcon } from "@heroicons/react/24/outline"
+import { set } from "lodash"
 import { useRouter } from "next/router"
 
 export default function NavButtons() {
   return (
-    <div className="absolute w-full flex sm:justify-start justify-center sm:p-28 p-8 h-[20%] bottom-0">
+    <div className="absolute w-full flex sm:justify-start justify-center sm:p-28 sm:pb-24 p-8 bottom-0">
       <div className="flex flex-row items-center justify-between gap-3 relative sm:w-fit w-full">
         <HomeButton />
         <PageButton page="ABOUT" />
@@ -22,12 +24,10 @@ export default function NavButtons() {
 }
 
 export function HomeButton() {
-  const { route, push } = useRouter()
-
-  const curSpace = routerPathToPage(route)
+  const { curPage, setCurPage } = usePageContext()
 
   const onPress = () => {
-    push("/")
+    setCurPage()
   }
 
   return (
@@ -37,7 +37,7 @@ export function HomeButton() {
       onClick={onPress}
     >
       <p
-        className={`top-0 absolute h-full ${curSpace ? "w-full" : "w-0"}
+        className={`top-0 absolute h-full ${curPage ? "w-full" : "w-0"}
            transition-all ease-out group-hover:w-0`}
         style={{ backgroundColor: "black" }}
       />
@@ -51,12 +51,10 @@ interface PageButtonProps {
 }
 
 function PageButton({ page }: PageButtonProps) {
-  const { route, push } = useRouter()
-
-  const curSpace = routerPathToPage(route)
+  const { curPage, setCurPage } = usePageContext()
 
   const onPress = () => {
-    push(pageToRouterPath(page))
+    setCurPage(page)
   }
   return (
     <div
@@ -65,9 +63,7 @@ function PageButton({ page }: PageButtonProps) {
       onClick={onPress}
     >
       <p
-        className={`top-0 absolute h-full ${
-          page === curSpace ? "w-0" : "w-full"
-        }
+        className={`top-0 absolute h-full ${page === curPage ? "w-0" : "w-full"}
            transition-all ease-out group-hover:w-0`}
         style={{ backgroundColor: getPageColor(page) }}
       />

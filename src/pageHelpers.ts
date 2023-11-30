@@ -1,6 +1,6 @@
-export type Space = "ABOUT" | "GEOGRAPHY" | "CONTACT"
+export type Page = "ABOUT" | "GEOGRAPHY" | "CONTACT"
 
-export function getPageColor(type: Space) {
+export function getPageColor(type: Page) {
   switch (type) {
     case "ABOUT":
       return "rgb(255,70,100)"
@@ -13,7 +13,7 @@ export function getPageColor(type: Space) {
   }
 }
 
-export function getPageName(type: Space) {
+export function getPageName(type: Page) {
   switch (type) {
     case "ABOUT":
       return "About"
@@ -26,7 +26,7 @@ export function getPageName(type: Space) {
   }
 }
 
-export function pageToRouterPath(page: Space) {
+export function pageToRouterPath(page: Page) {
   switch (page) {
     case "ABOUT":
       return "/about"
