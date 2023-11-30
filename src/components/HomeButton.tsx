@@ -16,7 +16,7 @@ export function HomeButton() {
   return (
     <div className="absolute top-0 right-0 sm:p-28 sm:pt-24 p-8">
       <div
-        className={`flex touchable justify-start items-start sm:py-1.5 py-1 cursor-pointer relative 
+        className={`flex justify-start items-start sm:py-1.5 py-1 cursor-pointer relative 
       sm:w-9 w-8 text-sm sm:text-base group`}
         onClick={onPress}
       >

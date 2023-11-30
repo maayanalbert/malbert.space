@@ -24,15 +24,6 @@ div#__next {
 @layer utilities {
 }
 
-/* Remove outline text inputs on mobile iOS and Safari */
-*:focus:not(.focus-visible) {
-  outline: none;
-}
-
-.touchable {
+div {
   -webkit-tap-highlight-color: transparent;
-}
-
-input:focus {
-  outline: none;
 }

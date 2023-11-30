@@ -30,7 +30,7 @@ export default function About() {
 
   return (
     <div
-      className="h-[85%] w-full flex flex-col sm:items-start items-center justify-center sm:pl-28 sm:m-0 m-8"
+      className="h-[85%] w-full flex flex-col sm:items-start items-center justify-center sm:pl-28 sm:p-0 p-8"
       style={{ color: "rgb(28, 28, 28)" }}
     >
       <p
@@ -63,7 +63,8 @@ export default function About() {
           style={{ color: getPageColor("GEOGRAPHY") }}
         >
           Maryland
-        </a>.
+        </a>
+        .
       </p>
     </div>
   )
