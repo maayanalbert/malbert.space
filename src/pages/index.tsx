@@ -8,23 +8,14 @@ export default function Home() {
     document.title = "Maayan"
   }, [])
 
-  return (
-    <div className="h-[85%] w-full flex flex-col sm:items-start items-center justify-center sm:pl-28">
-      <p
-        className="font-semibold sm:text-9xl text-5xl sm:leading-normal leading-tight sm:text-left text-center"
-        style={{ fontFamily: "Helvetica Neue" }}
-      >
-        Hi, I'm Maayan
-      </p>
-    </div>
-  )
+  return <HomeLayout />
 }
 
 interface Props {
-  info: ReactNode
+  infoChild?: ReactNode
 }
 
-export function HomeLayout(){
+export function HomeLayout({ infoChild }: Props) {
   return (
     <div className="h-[85%] w-full flex flex-col sm:items-start items-center justify-center sm:pl-28">
       <p
@@ -33,7 +24,9 @@ export function HomeLayout(){
       >
         Hi, I'm Maayan
       </p>
-      <div
+      <div className="relative w-full ml-[10px]">
+        <div className="absolute w-full">{infoChild}</div>
+      </div>
     </div>
   )
 }
