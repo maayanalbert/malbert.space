@@ -1,11 +1,11 @@
 export type Page = "ABOUT" | "GEOGRAPHY" | "CONTACT"
 
-export function getPageColor(type: Page) {
+export function getPageColor(type: Page, text?: boolean) {
   switch (type) {
     case "ABOUT":
       return "rgb(255,70,100)"
     case "GEOGRAPHY":
-      return "#E1C040"
+      return text ? "#D9AE00" : "#EBC737"
     case "CONTACT":
       return "rgb(0,151,254)"
     default:
