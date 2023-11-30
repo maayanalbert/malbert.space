@@ -1,4 +1,4 @@
-import { Space as Page, getPageColor } from "@/pageHelpers"
+import { Page as Page, getPageColor } from "@/pageHelpers"
 
 export type Row = Item[]
 
