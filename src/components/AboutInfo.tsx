@@ -24,7 +24,7 @@ export function AboutInfo() {
       >
         Authoring Environments
       </a>
-      .<br />
+      <br />
       <br className="sm:hidden" />
       After working at{" "}
       <a
@@ -53,7 +53,6 @@ export function AboutInfo() {
       >
         Eve
       </a>
-      .
     </p>
   )
 }
