@@ -7,7 +7,7 @@ export default function ContactInfo() {
   return (
     <div className="flex sm:flex-row flex-col gap-6">
       <p>
-        Email:{" "}
+        email:{" "}
         <a
           href="mailto:maayan@eve.space"
           target="_blank"
@@ -18,7 +18,7 @@ export default function ContactInfo() {
         </a>
       </p>
       <p>
-        Twitter:{" "}
+        twitter:{" "}
         <a
           href="https://twitter.com/_maayanster"
           target="_blank"
@@ -29,7 +29,7 @@ export default function ContactInfo() {
         </a>
       </p>
       <p>
-        Github:{" "}
+        github:{" "}
         <a
           href="https://github.com/maayanalbert"
           target="_blank"
