@@ -3,7 +3,7 @@ import { useEffect } from "react"
 
 export function GeographyInfo() {
   return (
-    <p className="text-lg">
+    <p>
       While I live in{" "}
       <a
         href="https://www.google.com/maps/place/Midtown+Manhattan,+New+York,+NY/@40.7504859,-74.0045233,14z/data=!3m1!4b1!4m6!3m5!1s0x89c25901a4127ca9:0xbecdcc9081d6cfdb!8m2!3d40.7549309!4d-73.9840195!16s%2Fg%2F11f3jdv3d9?entry=ttu"
