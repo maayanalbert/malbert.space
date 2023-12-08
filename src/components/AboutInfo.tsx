@@ -44,7 +44,7 @@ export function AboutInfo() {
       >
         Google
       </a>
-      , and a few startups, I'm now building the voice of the void with{" "}
+      , and a few startups, I'm now building the AI companion{" "}
       <a
         href="https://eve.space/"
         target="_blank"
