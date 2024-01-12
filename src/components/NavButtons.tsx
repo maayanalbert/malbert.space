@@ -1,14 +1,5 @@
 import { usePageContext } from "@/InfoContext"
-import {
-  Page as Page,
-  getPageColor,
-  getPageName,
-  routerPathToPage,
-  pageToRouterPath,
-} from "@/pageHelpers"
-import { HomeIcon } from "@heroicons/react/24/outline"
-import { set } from "lodash"
-import { useRouter } from "next/router"
+import { Page as Page, getPageColor, getPageName } from "@/pageHelpers"
 
 export default function NavButtons() {
   return (
