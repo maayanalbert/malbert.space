@@ -12,7 +12,7 @@ import { useRouter } from "next/router"
 
 export default function NavButtons() {
   return (
-    <div className="absolute w-full flex sm:justify-start justify-center sm:p-28 p-8 h-[20%] bottom-0">
+    <div className="absolute w-full flex sm:justify-start justify-center sm:pl-28 sm:pb-[72px] pb-10 p-8 bottom-0">
       <div className="flex flex-row items-center justify-between gap-3 relative sm:w-fit w-full">
         <HomeButton />
         <PageButton page="ABOUT" />
