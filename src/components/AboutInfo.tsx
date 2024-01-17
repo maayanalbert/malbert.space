@@ -44,7 +44,7 @@ export function AboutInfo() {
       >
         Google
       </a>
-      , and a few startups, I'm now building the AI companion{" "}
+      , and a few startups, I'm now building the AI diary{" "}
       <a
         href="https://eve.space/"
         target="_blank"
