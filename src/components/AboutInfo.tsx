@@ -22,7 +22,7 @@ export function AboutInfo() {
         className="hover:underline cursor-pointer"
         style={{ color: getPageColor("ABOUT") }}
       >
-        Authoring Environments
+        Authoring Environments.
       </a>
       <br />
       <br className="sm:hidden" />
@@ -51,7 +51,7 @@ export function AboutInfo() {
         className="hover:underline cursor-pointer"
         style={{ color: getPageColor("ABOUT") }}
       >
-        Eve
+        Eve.
       </a>
     </p>
   )

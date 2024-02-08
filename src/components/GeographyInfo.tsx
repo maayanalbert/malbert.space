@@ -13,16 +13,7 @@ export function GeographyInfo() {
       >
         New York
       </a>{" "}
-      and am currently spending time with family in{" "}
-      <a
-        href="https://www.google.com/maps/place/Bethesda,+MD/@38.9816027,-77.1597764,13z/data=!3m1!4b1!4m6!3m5!1s0x89b7cbb76a24022d:0x26b279f76a2bcd0d!8m2!3d38.984652!4d-77.0947092!16zL20vMGJ4YnI?entry=ttu"
-        target="_blank"
-        className="hover:underline cursor-pointer"
-        style={{ color: getPageColor("GEOGRAPHY", true) }}
-      >
-        Maryland
-      </a>{" "}
-      before moving to <br className="hidden sm:block" />
+      and will be moving to{" "}
       <a
         href="https://www.google.com/maps/place/Mission+District,+San+Francisco,+CA/@37.759062,-122.4243592,15z/data=!3m1!4b1!4m6!3m5!1s0x808f7e3c5f803323:0x35800073de45189!8m2!3d37.7635614!4d-122.4173724!16zL20vMDJsbDdy?entry=ttu"
         target="_blank"
@@ -31,7 +22,15 @@ export function GeographyInfo() {
       >
         San Francisco
       </a>{" "}
-      later on this year.
+      later on this year. Originally from{" "}
+      <a
+        href="https://www.google.com/maps/place/Bethesda,+MD/@38.9816027,-77.1597764,13z/data=!3m1!4b1!4m6!3m5!1s0x89b7cbb76a24022d:0x26b279f76a2bcd0d!8m2!3d38.984652!4d-77.0947092!16zL20vMGJ4YnI?entry=ttu"
+        target="_blank"
+        className="hover:underline cursor-pointer"
+        style={{ color: getPageColor("GEOGRAPHY", true) }}
+      >
+        Maryland.
+      </a>
     </p>
   )
 }
