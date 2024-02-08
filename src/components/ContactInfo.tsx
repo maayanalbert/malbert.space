@@ -5,9 +5,9 @@ import { getPageColor } from "@/pageHelpers"
 
 export default function ContactInfo() {
   return (
-    <div className="flex sm:flex-row flex-col gap-6">
+    <div className="flex sm:flex-row flex-col gap-5">
       <p>
-        email:{" "}
+        Email:{" "}
         <a
           href="mailto:maayan@eve.space"
           target="_blank"
@@ -18,7 +18,7 @@ export default function ContactInfo() {
         </a>
       </p>
       <p>
-        twitter:{" "}
+        Twitter:{" "}
         <a
           href="https://twitter.com/_maayanster"
           target="_blank"
@@ -29,7 +29,7 @@ export default function ContactInfo() {
         </a>
       </p>
       <p>
-        github:{" "}
+        Github:{" "}
         <a
           href="https://github.com/maayanalbert"
           target="_blank"

@@ -50,7 +50,7 @@ function PageButton({ page }: PageButtonProps) {
   return (
     <div
       className={`text-center py-1.5 cursor-pointer relative 
-      sm:w-28 w-full text-base group`}
+      sm:w-28 w-full text-base group select-none`}
       onClick={onPress}
     >
       <p
