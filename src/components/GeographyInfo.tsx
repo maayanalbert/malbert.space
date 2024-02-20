@@ -29,7 +29,7 @@ export function GeographyInfo() {
         className="hover:underline cursor-pointer"
         style={{ color: getPageColor("GEOGRAPHY", true) }}
       >
-        Maryland.
+        Washington, DC.
       </a>
     </p>
   )
