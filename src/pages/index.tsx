@@ -28,7 +28,7 @@ export default function Home() {
         <div className="relative w-full sm:ml-[10px] ml-[5px] flex sm:justify-start justify-center">
           <div
             className="absolute w-full sm:text-[19px] text-[16.5px] sm:px-0 px-8 sm:pt-8 pt-8 leading-[1.7]"
-            style={{ color: "rgb(44, 44, 44)" }}
+            style={{ color: "rgb(48, 48, 48)" }}
           >
             {curPage === "ABOUT" ? (
               <AboutInfo />
