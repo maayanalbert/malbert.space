@@ -13,9 +13,9 @@ export function AboutInfo() {
         className="hover:underline cursor-pointer"
         style={{ color: getPageColor("ABOUT") }}
       >
-        Carnegie Mellon
-      </a>
-      , where I wrote my thesis on{" "}
+        Carnegie Mellon,
+      </a>{" "}
+      where I wrote my thesis on{" "}
       <a
         href="https://paper.dropbox.com/doc/Stamper-An-Artboard-Oriented-Programming-Environment--Aur96RpoCsXsC76bFeRTFYSGAQ-QXtfMXshBFBNCu6iCtx2J"
         target="_blank"
@@ -33,18 +33,26 @@ export function AboutInfo() {
         className="hover:underline cursor-pointer"
         style={{ color: getPageColor("ABOUT") }}
       >
-        Apple
-      </a>
-      ,{" "}
+        Apple,
+      </a>{" "}
       <a
         href="https://www.google.com/travel/"
         target="_blank"
         className="hover:underline cursor-pointer"
         style={{ color: getPageColor("ABOUT") }}
       >
-        Google
-      </a>
-      , and a few startups, I'm now building the AI diary{" "}
+        Google,
+      </a>{" "}
+      and scaling{" "}
+      <a
+        href="https://avenue.app/"
+        target="_blank"
+        className="hover:underline cursor-pointer"
+        style={{ color: getPageColor("ABOUT") }}
+      >
+        Avenue,
+      </a>{" "}
+      I'm now building the AI diary{" "}
       <a
         href="https://eve.space/"
         target="_blank"
