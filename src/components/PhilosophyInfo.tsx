@@ -4,7 +4,7 @@ import { useEffect } from "react"
 export function PhilosophyInfo() {
   return (
     <p>
-      My used to mom used to call me a{" "}
+      My mom used to call me a{" "}
       <a
         href="https://drive.google.com/file/d/1SaMNKAsV2Ov6tc7SybPnKeUO5NLn8UNg/view?usp=sharing"
         target="_blank"
