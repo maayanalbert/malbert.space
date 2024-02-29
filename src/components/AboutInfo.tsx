@@ -25,7 +25,8 @@ export function AboutInfo() {
         href="https://en.wikipedia.org/wiki/Conference_on_Human_Factors_in_Computing_Systems"
         page="ABOUT"
       />
-      in the world. After working at
+      in the world. <br className="sm:hidden" /> <br className="sm:hidden" />
+      After working at
       <TextLink
         text="Apple,"
         href="https://www.apple.com/iwork/"

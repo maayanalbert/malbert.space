@@ -27,7 +27,7 @@ export default function Home() {
         </p>
         <div className="relative w-full sm:ml-[10px] ml-[5px] flex sm:justify-start justify-center">
           <div
-            className="absolute w-full sm:text-[16px] text-[16.5px] sm:px-0 px-8 sm:pt-8 pt-8 leading-[1.7] sm:w-[900px]"
+            className="absolute w-full sm:text-[16px] text-[14px] sm:px-0 px-8 sm:pt-8 pt-8 leading-[1.7] sm:w-[900px]"
             style={{ color: "rgb(40, 40, 40)" }}
           >
             {curPage === "ABOUT" ? (
