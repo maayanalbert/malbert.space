@@ -1,7 +1,7 @@
 import { usePageContext } from "@/InfoContext"
 import { AboutInfo } from "@/components/AboutInfo"
 import ContactInfo from "@/components/ContactInfo"
-import { GeographyInfo } from "@/components/GeographyInfo"
+import { PhilosophyInfo } from "@/components/PhilosophyInfo"
 import NavButtons from "@/components/NavButtons"
 import { ReactNode, useEffect } from "react"
 
@@ -27,15 +27,15 @@ export default function Home() {
         </p>
         <div className="relative w-full sm:ml-[10px] ml-[5px] flex sm:justify-start justify-center">
           <div
-            className="absolute w-full sm:text-[19px] text-[16.5px] sm:px-0 px-8 sm:pt-8 pt-8 leading-[1.7]"
-            style={{ color: "rgb(48, 48, 48)" }}
+            className="absolute w-full sm:text-[16px] text-[16.5px] sm:px-0 px-8 sm:pt-8 pt-8 leading-[1.7] sm:w-[900px]"
+            style={{ color: "rgb(40, 40, 40)" }}
           >
             {curPage === "ABOUT" ? (
               <AboutInfo />
             ) : curPage === "CONTACT" ? (
               <ContactInfo />
-            ) : curPage === "GEOGRAPHY" ? (
-              <GeographyInfo />
+            ) : curPage === "PHILOSOPHY" ? (
+              <PhilosophyInfo />
             ) : undefined}
           </div>
         </div>
