@@ -25,7 +25,7 @@ export function PhilosophyInfo() {
       </a>{" "}
       the key to life is bumping up against its edges. <br /> <br /> I believe
       in order to bump up against the edges you must fall, so you might as well
-      get used to it and better yet, learn to love it.
+      get used to it, and better yet, learn to love it.
     </p>
   )
 }
